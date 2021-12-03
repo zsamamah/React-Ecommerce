@@ -1,0 +1,86 @@
+.cart-container {
+  width: 80%;
+  margin: 5em auto;
+}
+.table {
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 20em rgba(0, 0, 0, 0.1);
+  margin: auto auto;
+  align-self: center;
+  border-radius: 2em;
+  border-collapse: collapse;
+  text-align: center;
+}
+.table-head,
+.table-footer {
+  background-color: rgb(245, 245, 245);
+  border: none;
+}
+.table-btn {
+  padding: 0.6em 1em;
+  background-color: #03a9f4;
+  border: none;
+  border-radius: 0.5em;
+  color: #fff;
+}
+.table-input {
+  width: 12%;
+  height: 4vh;
+  margin: 2px;
+  border-radius: 0.2em;
+  border: 1px solid rgb(209, 205, 205);
+}
+.cart-totals {
+  margin-top: 1em;
+  width: 35%;
+  background-color: #fff;
+  box-shadow: 0 0 60px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 0.1em 1.4em 0.3em;
+}
+.table-total {
+  border-collapse: collapse;
+}
+.table-total td {
+  border: 1px solid rgb(204, 201, 201);
+}
+.table-button {
+  margin-top: 1em;
+  padding: 0.6em;
+  background-color: #03a9f4;
+  border: none;
+  border-radius: 0.5em;
+  color: #fff;
+}
+.table-td {
+  width: 10%;
+  background-color: rgb(250, 250, 250);
+}
+.cart-total {
+  display: flex;
+  justify-content: flex-end;
+}
+.table-button2 {
+  margin-top: 1em;
+  padding: 0.6em;
+  background-color: rgb(230, 24, 24);
+  border: none;
+  border-radius: 0.5em;
+  color: #fff;
+}
+.table-button3 {
+  padding: 0.6em;
+  background-color: #03a9f4;
+  border: none;
+  border-radius: 0.5em;
+  color: #fff;
+  margin-top: 1em;
+}
+.empty-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
