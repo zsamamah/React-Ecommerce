@@ -1,0 +1,256 @@
+#root{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+nav{
+    width: 100%;
+}
+
+nav ul{
+    display: flex;
+    list-style-type: none;
+    justify-content: space-evenly;
+    background-color: black;
+    color: goldenrod;
+}
+
+.navLink{
+    color: goldenrod;
+}
+
+.logOutBtn{
+    cursor: pointer;
+}
+
+
+
+
+.cards_container{
+    width: 40%;
+
+}
+
+
+.prdCard{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-style: solid;
+    border-radius: 1rem;
+    background-color: black;
+    align-items: center;
+    text-align: justify;
+    color: goldenrod;
+}
+
+.prdCard img{
+    width: 75%;
+}
+
+.deleteBtn{
+    width: 75%;
+}
+
+.comment{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.comment textarea{
+    width: 100%;
+}
+
+.likeBtn{
+    cursor: pointer;
+}
+
+.prevComments{
+    display: flex;
+    width: 75%;
+    border-radius: 1rem;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(61, 60, 60);
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+.prevComments ul{
+    padding: 0;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style-type: none;
+    border-radius: 0.5rem;
+}
+
+.prevComments li{
+    width: 90%;
+    border-style: solid;
+    border-radius: 0.5rem;
+    background-color: goldenrod;
+    text-align:center;
+    color: black;
+    margin-bottom: 1%;
+    margin-top: 1%;
+}
+
+.userName1{
+    border-style: solid;
+    border-radius: 0.5rem;
+    color: rgb(111, 111, 202);
+    font-weight: 800;
+}
+.cmntBtn{
+    width:50%;
+    background-color: goldenrod;
+}
+
+.loginPage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+
+}
+
+.loginForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-style: solid;
+    border-radius: 1rem;
+    background-color: lightgrey;
+    width: 50%;
+    height: 50vh;
+}
+
+.loginForm label{
+    display: flex;
+    justify-content: space-evenly;
+    text-align:left;
+    width: 100%;
+}
+
+.loginForm input{
+    width: 60%;
+    justify-self: flex-end;
+}
+
+.loginForm p{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.AddForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-style: solid;
+    width: 70%;
+    height: 25vh;
+}
+
+.userCommented{
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+
+
+.homeUser{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.homeProj{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 2%;
+    width: 95%;
+}
+
+.homeCards{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    background-color: rgba(218, 165, 32, 0.53);
+    color: black;
+    
+}
+
+.homeCards img{
+    width: 75%;
+}
+
+.hero{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("https://img.freepik.com/free-vector/abstract-premium-black-gold-geometric-background_1017-24783.jpg?size=626&ext=jpg");
+    height: 30vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hero h1, .hero h2{
+    color: goldenrod;
+}
+
+.intro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 50%;
+}
+
+.intro h3{
+    color: goldenrod;
+    font-size: 120%;
+}
+
+.usersContainer{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+
+
+.userCard{
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    text-align: center;
+    overflow-wrap: break-word;
+    font-size: 75%;
+    width: 16.6%;
+}
+
+.userCard h4{
+    font-size: 100%;
+}
+
+
+
+
+
+
+
