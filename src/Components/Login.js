@@ -67,7 +67,7 @@ class Login extends React.Component {
     return (
       <React.Fragment>
         <h1>Login</h1>
-        <fieldset>
+        <fieldset id="login-fieldset">
           <form id="login-form" onSubmit={this.handleSubmit}>
             <div>
               <label htmlFor="login-email">
@@ -104,19 +104,45 @@ class Login extends React.Component {
             <React.Fragment>
             <h1>Hello {logged_user.fname}</h1>
             <fieldset id="profileContainer">
-                {/* <legend>{logged_user.fname} {logged_user.lname}</legend> */}
                 <div id="userProfile">
+                    <div>
                 <div><img src={logged_user.img} alt="user Profile" onError={this.badImage}/></div>
-                <div><h2>{logged_user.fname} {logged_user.lname}</h2></div>
-                <div><p>{logged_user.email}</p></div>
+                </div>
                 <div>
-                <button type="button" onClick={this.logout} id="logoutBtn">
-              Log out !
-            </button>
+                <div><h2>Full Name : {logged_user.fname} {logged_user.lname}</h2></div>
+                <div><p>Email Address: {logged_user.email}</p></div>
+                <br/>
+                <div>
+                <button type="button" onClick={this.logout} id="logoutBtn">Log out !</button>
+               </div>
             </div>
             </div>
             </fieldset>
             <br/>
+            <div id="account-editData">
+            <form id="changeData-form">
+                <div>
+                <label htmlFor="fname">First Name: <span className="accounts-important">*</span></label><br/>
+                <input type="text" id="fname" value={logged_user.fname}/>
+                </div>
+                <div>
+                <label htmlFor="lname">Last Name: <span className="accounts-important">*</span></label><br/>
+                <input type="text" id="lname" value={logged_user.lname}/>
+                </div>
+                <div>
+                    <label htmlFor="image-url">Image Url</label><br/>
+                    <input type="url" id="image-url" value={logged_user.img} />
+                </div>
+                <div>
+                <label htmlFor="email">Email Address : <span className="accounts-important">*</span></label><br/>
+                <input type="text" id="email" value={logged_user.email} disabled/>
+                <p className="error" id="account-email-rule"><i class="fas fa-times"></i> You can`t edit Email !</p>
+                </div>
+                <div>
+                    <button type="submit">Submit !</button>
+                </div>
+            </form>
+            </div>
             
           </React.Fragment>
         )

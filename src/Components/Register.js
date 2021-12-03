@@ -140,7 +140,7 @@ export class Register extends Component {
     return (
       <React.Fragment>
         <h1>Register</h1>
-        <fieldset>
+        <fieldset id="register-fieldset">
           <form action="/" id="register-form" onSubmit={this.handleSubmit}>
             <div>
               <label htmlFor="fname">
