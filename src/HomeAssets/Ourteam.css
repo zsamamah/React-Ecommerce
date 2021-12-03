@@ -1,0 +1,55 @@
+
+.cardContainer{
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+padding: 2em;
+margin: 0 auto;
+
+
+}
+.members a{
+    font-size: 1.5em;
+    text-decoration: none;
+}
+
+
+
+
+.cardContainer h2,p{
+    font-size: 2em;
+    color:#292C6D;
+}
+
+.cardContainer h2{
+    text-align: center;
+}
+
+.members{
+    color: #292C6D;
+    background-color: rgba(3, 169, 244, 0.05);
+    /* border: #161853 0.3em solid; */
+ margin: 0.5em;
+    align-items: center;
+    width: 100%;
+   
+}
+.memberContainer{
+display: flex;
+
+}
+
+
+
+@media screen and (max-width: 450px) {
+    .cardContainer  {
+        padding:0.5em;
+        
+    }
+
+    h2{
+        font-size: 1em;
+    }
+    .memberContainer{ display: flex;
+    flex-direction: column;}
+  }
