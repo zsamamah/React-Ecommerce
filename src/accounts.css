@@ -1,0 +1,61 @@
+body{
+    background-color: rgba(3, 169, 244, 0.05);
+}
+#accounts-form-container{
+    display: flex;
+    justify-content:center;
+}
+.accounts-important{
+    font-weight: bold;
+    color: red;
+}
+fieldset{
+    padding: 1.5em;
+    border-radius: 1em;
+    width: 60vw;
+}
+fieldset a{
+    color: rgb(70, 196, 255);
+    text-decoration: none;
+}
+#login-form > div{
+    margin-top: 1.5em;
+}
+#login-email , #login-password{
+    width: 90%;
+    border-radius: 0.5em;
+    padding: 1em;
+    margin-top: 0.5em;
+}
+#remember-me-container{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.accounts-form-btn{
+    border:none;
+    border-radius: 0.5em;
+    font-size: 1.2em;
+    padding: 0.5em 2em;
+    color: white;
+    background-color: rgb(3, 169, 244);
+}
+.error{
+    color: red;
+    font-size: 0.8em;
+}
+#register-form{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    row-gap: 1em;
+}
+#register-form p{
+    margin: 0;
+    padding: 0;
+}
+#register-form input{
+    width: 80%;
+    padding: 0.8em;
+
+}

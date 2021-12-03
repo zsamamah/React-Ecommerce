@@ -1,12 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import Accounts from './Components/Accounts';
 
 function App() {
   return (
-    <div className="App">
-      hello app
-    </div>
+    <React.Fragment>
+      <Accounts />
+    </React.Fragment>
   );
 }
 
 export default App;
+/*
+<div className="App">
+      hello app
+    </div>
+    */
