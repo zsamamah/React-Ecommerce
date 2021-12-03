@@ -18,20 +18,13 @@ class Login extends React.Component {
         let registerd_users=JSON.parse(localStorage.getItem("users"));
         for(let i=0;i<registerd_users.length;i++){
             if(registerd_users[i].email===this.state.email){
-                // console.log("email found");
                 if(registerd_users[i].password===this.state.password){
-                    // console.log("password true");
                     found=true;
                     index=i;
                     break;
                 }
             }
         }
-        // console.log(found)
-        // console.log(registerd_users[index])
-
-        
-
         if(found){
             alert("Welcom user")
             let user=registerd_users[index]
@@ -59,7 +52,13 @@ class Login extends React.Component {
                 alert("Impossible Error!!!")
         }
     }
+    logout = () => {
+        localStorage.removeItem("logged_in");
+        this.setState({});
+    };
+    
   render() {
+      if(!localStorage.getItem("logged_in"))
     return (
       <React.Fragment>
         <h1>Login</h1>
@@ -67,7 +66,7 @@ class Login extends React.Component {
           <form id="login-form" onSubmit={this.handleSubmit}>
             <div>
               <label htmlFor="login-email">
-                Username or email address{" "}
+                Username or email address
                 <span className="accounts-important">*</span>
               </label>
               <br />
@@ -94,7 +93,29 @@ class Login extends React.Component {
         </fieldset>
       </React.Fragment>
     );
+    else{
+        let logged_user=JSON.parse(localStorage.getItem("logged_in"))
+        return(
+            <React.Fragment>
+            <h1>Hello {logged_user.fname}</h1>
+            <fieldset id="profileContainer">
+                {/* <legend>{logged_user.fname} {logged_user.lname}</legend> */}
+                <div id="userProfile">
+                <div><img src={logged_user.img} alt="user Profile"/></div>
+                <div><h2>{logged_user.fname} {logged_user.lname}</h2></div>
+                <div><p>{logged_user.email}</p></div>
+                <div>
+                <button type="button" onClick={this.logout} id="logoutBtn">
+              Log out !
+            </button>
+            </div>
+            </div>
+            </fieldset>
+            <br/>
+            
+          </React.Fragment>
+        )
+    }
   }
 }
-
 export default Login;

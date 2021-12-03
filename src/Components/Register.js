@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import adminPic from './accounts-assets/admin.png';
+import adminPic from "./accounts-assets/admin.png";
 import "../accounts.css";
 
 export class Register extends Component {
@@ -9,13 +9,13 @@ export class Register extends Component {
     this.state = {
       fname: "",
       lname: "",
-      img:"",
+      img: "",
       email: "",
       password: "",
-      role:"user"
+      role: "user",
     };
   }
-  
+
   handleSubmit = (e) => {
     if (
       fnameValid &&
@@ -24,38 +24,49 @@ export class Register extends Component {
       passwordValid &&
       repasswordValid
     ) {
-      alert("Successfully registration !");
       //create user in localStorage
-      let user={
+      let user = {
         fname: this.state.fname,
-      lname: this.state.lname,
-      img: this.state.img,
-      email: this.state.email,
-      password: this.state.password,
-      role: this.state.role
-      }
-      if(!localStorage.getItem("users")){
-        let users=[]
-        let adminUser={
-          fname:"admin",
-          lname:"admin",
+        lname: this.state.lname,
+        img: this.state.img,
+        email: this.state.email,
+        password: this.state.password,
+        role: this.state.role,
+      };
+      if (!localStorage.getItem("users")) {
+        let users = [];
+        let adminUser = {
+          fname: "admin",
+          lname: "admin",
           img: adminPic,
-          email:"admin@admin.com",
-          password:"123321",
-          role:"admin"
+          email: "admin@admin.com",
+          password: "123321",
+          role: "admin",
+        };
+        users.push(adminUser);
+        users.push(user);
+        localStorage.setItem("users", JSON.stringify(users));
+        alert("Successfully registration !");
+      } else {
+        let foundEmail = false;
+        let myUsers = JSON.parse(localStorage.getItem("users"));
+        for (let i = 0; i < myUsers.length; i++) {
+          if (myUsers[i].email === this.state.email) {
+            foundEmail = true;
+            break;
+          }
         }
-        users.push(adminUser)
-        users.push(user)
-      localStorage.setItem("users",JSON.stringify(users))
-      }
-      else{
-        let myUsers=JSON.parse(localStorage.getItem("users"))
-        myUsers.push(user)
-        localStorage.setItem("users",JSON.stringify(myUsers))
+        if (foundEmail) {
+          e.preventDefault();
+          alert("Email Found !");
+        } else {
+          myUsers.push(user);
+          localStorage.setItem("users", JSON.stringify(myUsers));
+        }
       }
     } else {
       e.preventDefault();
-      alert("Edit Data!!!!")
+      alert("Edit Data!!!!");
     }
   };
   validator = (e) => {
@@ -88,7 +99,7 @@ export class Register extends Component {
         }
         break;
       case "img-url":
-        this.setState({img:e.target.value});
+        this.setState({ img: e.target.value });
         break;
       case "email":
         emailValid = true;
@@ -112,9 +123,7 @@ export class Register extends Component {
       case "repassword":
         if (e.target.value === this.state.password) {
           repasswordValid = true;
-          document.getElementById(
-            "RU-repassword"
-          ).innerText=""
+          document.getElementById("RU-repassword").innerText = "";
         } else {
           repasswordValid = false;
           document.getElementById(
@@ -134,7 +143,9 @@ export class Register extends Component {
         <fieldset>
           <form action="/" id="register-form" onSubmit={this.handleSubmit}>
             <div>
-              <label htmlFor="fname">First Name : <span className="accounts-important">*</span> </label>
+              <label htmlFor="fname">
+                First Name : <span className="accounts-important">*</span>{" "}
+              </label>
               <br />
               <input
                 type="text"
@@ -146,7 +157,9 @@ export class Register extends Component {
               <p className="error" id="RU-fname"></p>
             </div>
             <div>
-              <label htmlFor="lname">Last Name : <span className="accounts-important">*</span> </label>
+              <label htmlFor="lname">
+                Last Name : <span className="accounts-important">*</span>{" "}
+              </label>
               <br />
               <input
                 type="text"
@@ -158,8 +171,9 @@ export class Register extends Component {
               <p className="error" id="RU-lname"></p>
             </div>
             <div>
-             <label htmlFor="img-url">Profile Image : </label><br/>
-             <input type="url" id="img-url" onChange={this.validator} />
+              <label htmlFor="img-url">Profile Image : </label>
+              <br />
+              <input type="url" id="img-url" onChange={this.validator} />
             </div>
             <div>
               <label htmlFor="email">
@@ -175,7 +189,9 @@ export class Register extends Component {
               />
             </div>
             <div>
-              <label htmlFor="password">Password : <span className="accounts-important">*</span></label>
+              <label htmlFor="password">
+                Password : <span className="accounts-important">*</span>
+              </label>
               <br />
               <input
                 type="password"
@@ -186,7 +202,9 @@ export class Register extends Component {
               <p className="error" id="RU-password"></p>
             </div>
             <div>
-              <label htmlFor="repassword">Repeat Password : <span className="accounts-important">*</span></label>
+              <label htmlFor="repassword">
+                Repeat Password : <span className="accounts-important">*</span>
+              </label>
               <br />
               <input
                 type="password"
@@ -197,11 +215,15 @@ export class Register extends Component {
               <p className="error" id="RU-repassword"></p>
             </div>
             <div>
-              <button type="submit" className="accounts-form-btn">Register</button>
-              <br/>
-              <Link to="/login">
-               <p style={{marginTop:"0.8em"}}>Already Have an account? Sign in here!</p>
-            </Link>
+              <button type="submit" className="accounts-form-btn">
+                Register
+              </button>
+              <br />
+              <Link to="/account">
+                <p style={{ marginTop: "0.8em" }}>
+                  Already Have an account? Sign in here!
+                </p>
+              </Link>
             </div>
           </form>
         </fieldset>
