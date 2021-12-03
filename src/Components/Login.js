@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import '../accounts.css'
+import '../accounts.css';
+import tempMan from './accounts-assets/temp_man.jpg';
 
 class Login extends React.Component {
     constructor(props){
@@ -56,6 +57,10 @@ class Login extends React.Component {
         localStorage.removeItem("logged_in");
         this.setState({});
     };
+    badImage = (e)=>{
+        e.target.onerror = null;
+        e.target.src=tempMan
+    }
     
   render() {
       if(!localStorage.getItem("logged_in"))
@@ -101,7 +106,7 @@ class Login extends React.Component {
             <fieldset id="profileContainer">
                 {/* <legend>{logged_user.fname} {logged_user.lname}</legend> */}
                 <div id="userProfile">
-                <div><img src={logged_user.img} alt="user Profile"/></div>
+                <div><img src={logged_user.img} alt="user Profile" onError={this.badImage}/></div>
                 <div><h2>{logged_user.fname} {logged_user.lname}</h2></div>
                 <div><p>{logged_user.email}</p></div>
                 <div>
