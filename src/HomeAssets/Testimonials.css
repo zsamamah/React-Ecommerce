@@ -1,0 +1,38 @@
+.testimonialContainer{
+
+    display: flex;
+flex-direction: column;
+justify-content: space-between;
+padding: 2em;
+margin: 0 auto;
+}
+  
+.testimonialContainer h2{
+color: #292C6D;
+    text-align: center;
+}
+
+
+.people{
+width: 100%;
+    color: #292C6D;
+    background-color: rgba(3, 169, 244, 0.05);
+    margin: 0.5em;
+    /* padding: 2em; */
+    align-items: center;
+   
+}
+.testimonials{
+
+    display: flex;
+}
+.people p{
+
+    font-size: 1.5em;
+}
+
+@media screen and (max-width: 450px) {
+    
+    .testimonials{ display: flex;
+    flex-direction: column;}
+  }
