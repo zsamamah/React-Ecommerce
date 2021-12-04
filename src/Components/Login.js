@@ -27,7 +27,7 @@ class Login extends React.Component {
             }
         }
         if(found){
-            alert("Welcom user")
+            alert("Welcome user")
             let user=registerd_users[index]
             user['remember']=this.state.remember
             localStorage.setItem("logged_in",JSON.stringify(user));
