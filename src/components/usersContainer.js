@@ -4,14 +4,14 @@ export default class UsersContainer extends Component {
     constructor(props){
         super(props)
         this.state={
-            users:JSON.parse(localStorage.getItem("user")),
+            users:JSON.parse(localStorage.getItem("users")),
         }
     }
 
     handleChangeRole=  (e,i)=>{
         let array1=this.state.users
         array1[i].role=e.target.value;
-        localStorage.setItem("user",JSON.stringify(array1));
+        localStorage.setItem("users",JSON.stringify(array1));
         this.setState({users:array1})
 
     }
@@ -19,7 +19,7 @@ export default class UsersContainer extends Component {
     handleDeleteUser=(e,i)=>{
         let array1=this.state.users
         array1.splice(i,1);
-        localStorage.setItem("user",JSON.stringify(array1));
+        localStorage.setItem("users",JSON.stringify(array1));
         this.setState({users:array1})
 
         
@@ -31,19 +31,15 @@ export default class UsersContainer extends Component {
             <div className='usersContainer'>
                     <ul className='userCard'>
                         <h4> Emails</h4>
-                        {this.state.users.map((user,indx)=><li key={indx}>{user.mail}</li>)}
+                        {this.state.users.map((user,indx)=><li key={indx}>{user.email}</li>)}
                     </ul>
                     <ul className='userCard'>
                         <h4> First Names</h4>
-                        {this.state.users.map((user,indx)=><li key={indx}>{user.name}</li>)}
+                        {this.state.users.map((user,indx)=><li key={indx}>{user.fname}</li>)}
                     </ul>
                     <ul className='userCard'>
                         <h4> Last Names</h4>
-                        {this.state.users.map((user,indx)=><li key={indx}>{user.lastname}</li>)}
-                    </ul>
-                    <ul className='userCard'>
-                        <h4> Passwords</h4>
-                        {this.state.users.map((user,indx)=><li key={indx}>{user.password}</li>)}
+                        {this.state.users.map((user,indx)=><li key={indx}>{user.lname}</li>)}
                     </ul>
                     <ul className="userCard">
                         <h4>Role</h4>
@@ -52,7 +48,7 @@ export default class UsersContainer extends Component {
                         <li key={i}>
                             <select value={user.role}  name="role" onChange={(e)=>this.handleChangeRole(e,i)}>
                                 <option value={user.role}>{user.role}</option>
-                                <option value={user.role==="Admin"? "user":"Admin"}>{user.role==="Admin"? "user":"Admin"}</option>
+                                <option value={user.role==="admin"? "user":"admin"}>{user.role==="admin"? "user":"admin"}</option>
                             </select>
                         </li>
 

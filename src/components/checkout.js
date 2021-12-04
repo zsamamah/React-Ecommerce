@@ -9,15 +9,17 @@ export default class Checkout extends Component {
         this.state={
             loggedIn:JSON.parse(localStorage.getItem('loggedIn')),
             cashMsg1:'flex',
-            cashMsg2:'none'
+            cashMsg2:'none',
+            redirect:null,
         }
         this.order=JSON.parse(localStorage.getItem('order'));
+
     }
 
 
     handleSubmit=(e)=>{
         e.preventDefault()
-        let checkoutInfo={
+        this.checkoutInfo={
             // firstName:e.target.fName.value,
             // lastName:e.target.lName.value,
             country:e.target.country.value,
@@ -35,11 +37,11 @@ export default class Checkout extends Component {
         
         let ordersArr =JSON.parse(localStorage.getItem('submittedOrders'));
         if(ordersArr){
-            ordersArr.push(checkoutInfo)
+            ordersArr.push(this.checkoutInfo)
             localStorage.setItem('submittedOrders',JSON.stringify(ordersArr));
             console.log(ordersArr,1)
         }else{
-            localStorage.setItem('submittedOrders',JSON.stringify([checkoutInfo]));
+            localStorage.setItem('submittedOrders',JSON.stringify([this.checkoutInfo]));
             console.log(ordersArr,2)
         }
         localStorage.removeItem('order');
@@ -47,6 +49,7 @@ export default class Checkout extends Component {
         localStorage.removeItem('total');
         localStorage.removeItem('discount');
         localStorage.removeItem('coupon');
+        this.setState({redirect:true});
     }
 
     handlePayment= (e)=>{
@@ -61,10 +64,31 @@ export default class Checkout extends Component {
         return sum;
     }
     render() {
+        if(this.state.redirect)
+        return (
+            <div className="empty-container">
+            <div>Your order is submitted, it will be delivered within 2 to three weeks!</div>
+            <div className="checkout-orderDetails">
+                <ul>
+                    {/* {()=>{
+                        for(let prop of this.checkoutInfo){
+                            return (
+                                <li>{prop}</li>
+                            )
+                        }
+                    }} */}
+                </ul>
+            </div>
+            <Link to="/shop">
+              <button className="table-button3">continue shopping</button>
+            </Link>
+          </div>
+        )
+
         if(this.order)
         return (
             <div className='checkout-container'>
-                    <form onSubmit={this.handleSubmit}>
+                    <form action='' onSubmit={this.handleSubmit}>
                         <div className='checkout-left'>
                                 <div className='left-container'>
 
