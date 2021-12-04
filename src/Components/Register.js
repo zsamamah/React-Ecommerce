@@ -155,7 +155,8 @@ export class Register extends Component {
   };
   render() {
     return (
-      <React.Fragment>
+      <div id="accounts-form-container">
+        <div>
         <h1>Register</h1>
         <fieldset id="register-fieldset">
           <form action="/" id="register-form" onSubmit={this.handleSubmit}>
@@ -256,21 +257,20 @@ export class Register extends Component {
               />
               <p className="error" id="RU-repassword"></p>
             </div>
-            <br />
             <div>
               <button type="submit" className="accounts-form-btn">
                 Register
               </button>
               <br />
+              <br/>
+              <Link to="/account">
+              Already Have an account? Sign in here!
+          </Link>
             </div>
           </form>
-          <Link to="/account">
-            <p style={{ marginTop: "0.8em" }}>
-              Already Have an account? Sign in here!
-            </p>
-          </Link>
         </fieldset>
-      </React.Fragment>
+      </div>
+      </div>
     );
   }
 }
