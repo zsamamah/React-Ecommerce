@@ -61,7 +61,7 @@
     width: 90%;
 }
 
-.checkout-summary table, th, td{
+.checkout-summary table, .checkout-summary th, .checkout-summary td{
    border: 1px solid lightgray;
    border-radius: 0.2em;
 
@@ -76,7 +76,7 @@
     background-color: rgba(219, 219, 219, 0.566);
 }
 
-th{
+.checkout-summary th{
     width: 80%;
     text-align: left;
 }

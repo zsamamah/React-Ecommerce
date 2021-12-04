@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {countries} from './countries.'
+import { Link } from "react-router-dom";
 import '../checkout.css'
 
 export default class Checkout extends Component {
@@ -15,6 +16,7 @@ export default class Checkout extends Component {
 
 
     handleSubmit=(e)=>{
+        e.preventDefault()
         let checkoutInfo={
             // firstName:e.target.fName.value,
             // lastName:e.target.lName.value,
@@ -23,21 +25,28 @@ export default class Checkout extends Component {
             town:e.target.town.value,
             state: e.target.state.value,
             zip: e.target.zip.value,
-            // price:this.order.finalPrice,
-            // coupon:this.order.coupon,
-            // discount:this.order.discount,
+            price:JSON.parse(localStorage.getItem('total')),
+            coupon:"cat",
+            discount:JSON.parse(localStorage.getItem('total'))-JSON.parse(localStorage.getItem('subTotal')),
             payment: this.state.cashMsg1==="flex"? "Cash":"Credit Card",
             status:"Pending"
         }
 
         
-        let ordersArr =JSON.parse(localStorage.getItem('orders'));
+        let ordersArr =JSON.parse(localStorage.getItem('submittedOrders'));
         if(ordersArr){
             ordersArr.push(checkoutInfo)
-            localStorage.setItem('orders',JSON.stringify(ordersArr));
+            localStorage.setItem('submittedOrders',JSON.stringify(ordersArr));
+            console.log(ordersArr,1)
         }else{
-            localStorage.setItem('order',JSON.stringify([checkoutInfo]));
+            localStorage.setItem('submittedOrders',JSON.stringify([checkoutInfo]));
+            console.log(ordersArr,2)
         }
+        localStorage.removeItem('order');
+        localStorage.removeItem('subTotal');
+        localStorage.removeItem('total');
+        localStorage.removeItem('discount');
+        localStorage.removeItem('coupon');
     }
 
     handlePayment= (e)=>{
@@ -52,6 +61,7 @@ export default class Checkout extends Component {
         return sum;
     }
     render() {
+        if(this.order)
         return (
             <div className='checkout-container'>
                     <form onSubmit={this.handleSubmit}>
@@ -168,6 +178,15 @@ export default class Checkout extends Component {
                 </div>
                 </form>
             </div>
+        )
+        else
+        return(
+            <div className="empty-container">
+            <div>You Cart is empty</div>
+            <Link to="/shop">
+              <button className="table-button3">Back to shopping</button>
+            </Link>
+          </div>
         )
     }
 }
