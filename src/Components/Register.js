@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import adminPic from "./accounts-assets/admin.png";
+import { countries } from "./countries.";
 import "../accounts.css";
 
 export class Register extends Component {
@@ -9,6 +10,8 @@ export class Register extends Component {
     this.state = {
       fname: "",
       lname: "",
+      country:"",
+      phone:"",
       img: "",
       email: "",
       password: "",
@@ -28,6 +31,8 @@ export class Register extends Component {
       let user = {
         fname: this.state.fname,
         lname: this.state.lname,
+        country: this.state.country,
+        phone: this.state.phone,
         img: this.state.img,
         email: this.state.email,
         password: this.state.password,
@@ -38,6 +43,8 @@ export class Register extends Component {
         let adminUser = {
           fname: "admin",
           lname: "admin",
+          country:"Jordan",
+          phone:"0777777777",
           img: adminPic,
           email: "admin@admin.com",
           password: "123321",
@@ -98,9 +105,19 @@ export class Register extends Component {
           ).innerHTML = `<i class="fas fa-times"></i> Last name must be longer than 3 characters`;
         }
         break;
+
+      case "country":
+        this.setState({country:e.target.value})
+        break;
+      
+      case "phone":
+        this.setState({phone:e.target.validator})
+        break;
+
       case "img-url":
         this.setState({ img: e.target.value });
         break;
+
       case "email":
         emailValid = true;
         this.setState({ email: e.target.value });
@@ -138,7 +155,8 @@ export class Register extends Component {
   };
   render() {
     return (
-      <React.Fragment>
+      <div id="accounts-form-container">
+        <div>
         <h1>Register</h1>
         <fieldset id="register-fieldset">
           <form action="/" id="register-form" onSubmit={this.handleSubmit}>
@@ -169,6 +187,31 @@ export class Register extends Component {
                 required
               />
               <p className="error" id="RU-lname"></p>
+            </div>
+            <div>
+              <label htmlFor="country">
+                Country : <span className="accounts-important">*</span>
+              </label>
+              <br />
+              <select id="country" onChange={this.validator} required>
+                {countries.map((element, i) => {
+                  return <option key={i} value={element.name}>{element.name}</option>;
+                })}
+              </select>
+            </div>
+            <div>
+              <label htmlFor="phone">
+                Phone Number : <span className="accounts-important">*</span>
+              </label>
+              <br />
+              <input
+                type="tel"
+                minLength="10"
+                maxLength="14"
+                id="phone"
+                placeholder="07xxxxxxxx"
+                required
+              />
             </div>
             <div>
               <label htmlFor="img-url">Profile Image : </label>
@@ -219,15 +262,15 @@ export class Register extends Component {
                 Register
               </button>
               <br />
+              <br/>
               <Link to="/account">
-                <p style={{ marginTop: "0.8em" }}>
-                  Already Have an account? Sign in here!
-                </p>
-              </Link>
+              Already Have an account? Sign in here!
+          </Link>
             </div>
           </form>
         </fieldset>
-      </React.Fragment>
+      </div>
+      </div>
     );
   }
 }

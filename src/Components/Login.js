@@ -27,7 +27,7 @@ class Login extends React.Component {
             }
         }
         if(found){
-            alert("Welcom user")
+            alert("Welcome user")
             let user=registerd_users[index]
             user['remember']=this.state.remember
             localStorage.setItem("logged_in",JSON.stringify(user));
@@ -65,7 +65,8 @@ class Login extends React.Component {
   render() {
       if(!localStorage.getItem("logged_in"))
     return (
-      <React.Fragment>
+      <div id="accounts-form-container">
+        <div>
         <h1>Login</h1>
         {/* Passing data */}
         {/* Login should where to redirect  */}
@@ -98,12 +99,14 @@ class Login extends React.Component {
         </div>
           </form>
         </fieldset>
-      </React.Fragment>
+      </div>
+      </div>
     );
     else{
         let logged_user=JSON.parse(localStorage.getItem("logged_in"))
         return(
-            <React.Fragment>
+          <div id="accounts-form-container">
+          <div>
             <h1>Hello {logged_user.fname}</h1>
             <fieldset id="profileContainer">
                 <div id="userProfile">
@@ -145,8 +148,8 @@ class Login extends React.Component {
                 </div>
             </form>
             </div>
-            
-          </React.Fragment>
+            </div>
+            </div>
         )
     }
   }
