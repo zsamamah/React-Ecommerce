@@ -67,6 +67,8 @@ class Login extends React.Component {
     return (
       <React.Fragment>
         <h1>Login</h1>
+        {/* Passing data */}
+        {/* Login should where to redirect  */}
         <fieldset id="login-fieldset">
           <form id="login-form" onSubmit={this.handleSubmit}>
             <div>

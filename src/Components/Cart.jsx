@@ -6,7 +6,7 @@ class Cart extends React.Component {
   state = {
     products: JSON.parse(localStorage.getItem('order')),
     coupon: "",
-    subtotal: JSON.parse(localStorage.getItem('subtotal')),
+    subtotal: JSON.parse(localStorage.getItem('subTotal')),
     total: JSON.parse(localStorage.getItem('total')),
     discounted:JSON.parse(localStorage.getItem('discount')),
   };
