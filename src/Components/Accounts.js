@@ -9,12 +9,10 @@ export class Accounts extends Component {
     return (
       <div id="accounts-form-container">
         <div>
-          <BrowserRouter>
             <Routes>
               <Route path="/account" element={<Login/>} />
               <Route path="/register" element={<Register />} />
             </Routes>
-          </BrowserRouter>
         </div>
       </div>
     );

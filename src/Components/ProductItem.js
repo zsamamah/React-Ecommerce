@@ -13,6 +13,8 @@ export class Products extends Component {
             counter: 1
         }
     }
+
+
     orders = [];
     minuseClick = () => {
 
@@ -29,22 +31,28 @@ export class Products extends Component {
 
     toCart = () => {
 
-        const storageProducts = JSON.parse(localStorage.getItem('order'));
+        let storageProducts = JSON.parse(localStorage.getItem('order'));
         let found = false, index;
-        for (let i = 0; i < storageProducts.length; i++) {
-            found = false
-            if (storageProducts[i].id === this.state.id) {
-                found = true;
-                index = i;
-                break;
+        if(storageProducts){
+
+            for (let i = 0; i < storageProducts.length; i++) {
+                found = false
+                if (storageProducts[i].id === this.state.id) {
+                    found = true;
+                    index = i;
+                    break;
+                }
+            }
+            if (found) {
+                storageProducts[index] = this.state
+                localStorage.setItem('order', JSON.stringify(storageProducts))
+            } else {
+                storageProducts.push(this.state);
+                localStorage.setItem('order', JSON.stringify(storageProducts));
             }
         }
-        if (found) {
-            storageProducts[index] = this.state
-            localStorage.setItem('order', JSON.stringify(storageProducts))
-        } else {
-            storageProducts.push(this.state);
-            localStorage.setItem('order', JSON.stringify(storageProducts));
+        else{
+            localStorage.setItem('order', JSON.stringify([this.state]))
         }
 
 
@@ -71,3 +79,6 @@ export class Products extends Component {
 }
 
 export default Products
+
+
+

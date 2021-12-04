@@ -13,9 +13,6 @@ export default class Checkout extends Component {
         this.order=JSON.parse(localStorage.getItem('order'));
     }
 
-    componentDidMount= () =>{
-        console.log(JSON.parse(localStorage.getItem('orders')))
-    }
 
     handleSubmit=(e)=>{
         let checkoutInfo={
@@ -47,13 +44,13 @@ export default class Checkout extends Component {
         e.target.value=="cash"?this.setState({cashMsg1:"flex",cashMsg2:'none'}):this.setState({cashMsg1:'none',cashMsg2:'flex'})
     }
 
-    // totalPrice = ()=>{
-    //     let sum=0;
-    //     for(obj of this.order){
-    //         sum+=obj.finalPrice;
-    //     }
-    //     return sum;
-    // }
+    totalPrice = ()=>{
+        let sum=0;
+        for(let obj of this.order){
+            sum+=obj.counter*obj.price;
+        }
+        return sum;
+    }
     render() {
         return (
             <div className='checkout-container'>
@@ -116,19 +113,19 @@ export default class Checkout extends Component {
                                 </tr>
                             </thead>
                             <tbody>   
-                                {/* {this.order.map((element,i)=>
+                                {this.order.map((element,i)=>
                                     <tr>
-                                    <td>{element.name}</td>
-                                    <td>${element.finalPrice}</td>
+                                    <td>{element.itemName}</td>
+                                    <td>JOD ${element.price*element.counter}</td>
                                     </tr>
-                                    )} */}
+                                    )}
                                 <tr>
                                     <td className="table-grey">Subtotal</td>
-                                    <td>{this.totalPrice}</td>
+                                    <td>{this.totalPrice()}</td>
                                 </tr>
                                 <tr>
                                     <td className="table-grey">Total</td>
-                                    <td>{this.totalPrice}</td>
+                                    <td>{JSON.parse(localStorage.getItem('total'))}</td>
                                 </tr>
                             </tbody>
                         </table>

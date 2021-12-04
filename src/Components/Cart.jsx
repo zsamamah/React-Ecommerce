@@ -1,81 +1,76 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "../Cart.css";
 
 class Cart extends React.Component {
   state = {
-    products: [],
+    products: JSON.parse(localStorage.getItem('order')),
     coupon: "",
-    subtotal: 0,
-    total: 0,
+    subtotal: JSON.parse(localStorage.getItem('subtotal')),
+    total: JSON.parse(localStorage.getItem('total')),
+    discounted:JSON.parse(localStorage.getItem('discount')),
   };
-  componentDidMount() {
-    localStorage.setItem(
-      "data",
-      JSON.stringify([
-        {
-          id: 1,
-          img: "",
-          itemName: "laptop",
-          price: 2,
-          counter: 1,
-          subtotal: 2,
-        },
-        {
-          id: 2,
-          img: "",
-          itemName: "alfds",
-          price: 2,
-          counter: 1,
-          subtotal: 2,
-        },
-      ])
-    );
+   async componentDidMount() {
+    await this.subTotal();
     localStorage.setItem("coupon", "cat");
-    localStorage.setItem("subTotal", "0");
-
-    this.setState({ products: JSON.parse(localStorage.getItem("data")) });
-
-    setTimeout(() => {
-      this.subTotal();
-    }, 500);
+    if(!this.state.discounted)
+    localStorage.setItem("discount",JSON.stringify(false))
+    if(!localStorage.getItem('total')){
+      localStorage.setItem("total", JSON.stringify(this.state.subtotal));
+      this.setState({total:JSON.parse(localStorage.getItem('total')),})
+    }
   }
 
-  increment = (product) => {
-    let index = this.state.products.indexOf(product);
-    let newProducts = this.state.products;
-    newProducts[index].counter++;
-    newProducts[index].subtotal =
-      newProducts[index].subtotal + newProducts[index].price;
-    this.setState({ products: newProducts });
+  increment = async (product) => {
+    let index;
+    let prd = JSON.parse(localStorage.getItem('order'))
+    for (let obj of prd){
+      if(obj.id===product.id)
+        index = prd.indexOf(obj)
+    }
+    prd[index].counter += 1;
+    localStorage.setItem("order",JSON.stringify(prd));
+    await this.setState({products:JSON.parse(localStorage.getItem('order'))})
     this.subTotal();
-    localStorage.setItem("data", JSON.stringify(newProducts));
   };
 
-  decrement = (product) => {
-    let index = this.state.products.indexOf(product);
-    let newProducts = this.state.products;
-    newProducts[index].counter--;
-    newProducts[index].subtotal =
-      newProducts[index].subtotal - newProducts[index].price;
-    this.setState({ product: newProducts });
+  decrement = async (product) => {
+    let index;
+    let prd = JSON.parse(localStorage.getItem('order'))
+    for (let obj of prd){
+      if(obj.id===product.id)
+        index = prd.indexOf(obj)
+    }
+    prd[index].counter -= 1;
+    localStorage.setItem("order",JSON.stringify(prd));
+    await this.setState({products:JSON.parse(localStorage.getItem('order'))})
     this.subTotal();
-    localStorage.setItem("data", JSON.stringify(newProducts));
   };
 
-  subTotal = () => {
+  subTotal = async () => {
     let sum = 0;
-    this.state.products?.forEach((product) => (sum = sum + product.subtotal));
-    this.setState({ subtotal: sum });
-    this.setState({ total: sum });
+    // this.state.products?.forEach((product) => (sum = sum + (product.counter*product.price)));
+    if(this.state.products)
+    this.state.products.forEach((product) => (sum = sum + (product.counter*product.price)));
     localStorage.setItem("subTotal", JSON.stringify(sum));
+    this.setState({ subtotal: sum });
+    if(!this.state.discounted)
+    await this.setState({ total: sum });
+    else
+      await this.setState({total: (0.8*this.state.subtotal)});
+      localStorage.setItem("total",JSON.stringify(this.state.total))
+
+
   };
 
-  handleDelete = (product) => {
+  handleDelete = async(product) => {
     const newProducts = this.state.products.filter(
       (el) => el.id !== product.id
     );
-    this.setState({ products: newProducts });
-    localStorage.setItem("data", JSON.stringify(newProducts));
+    await this.setState({ products: newProducts });
+    localStorage.setItem("order", JSON.stringify(newProducts));
+    this.subTotal();
+
   };
   couponInputHandler = (event) => {
     this.setState({ coupon: event.target.value });
@@ -83,11 +78,15 @@ class Cart extends React.Component {
   couponButtonHandler = () => {
     this.couponDiscount();
   };
-  couponDiscount = () => {
+  couponDiscount = async () => {
     if (this.state.subtotal !== this.state.total) return;
     if (this.state.coupon == localStorage.getItem("coupon")) {
-      let newSubTotal = this.state.subtotal - this.state.subtotal * 0.2;
-      this.setState({ subtotal: newSubTotal });
+      let newSubTotal = this.state.total - this.state.total * 0.2;
+      localStorage.setItem('total',JSON.stringify(newSubTotal))
+      this.setState({ total: newSubTotal });
+      await this.setState({discounted:true});
+      localStorage.setItem("discount",JSON.stringify(this.state.discounted))
+
     }
   };
   render() {
@@ -106,7 +105,7 @@ class Cart extends React.Component {
               </tr>
             </thead>
             <tbody>
-              {this.state.products.map((product) => (
+              {JSON.parse(localStorage.getItem("order")).map((product) => (
                 <tr>
                   <td>
                     <button
@@ -120,7 +119,7 @@ class Cart extends React.Component {
                     <img src={product.img} />
                   </td>
                   <td>{product.itemName}</td>
-                  <td>{product.price}</td>
+                  <td>JOD {product.price}</td>
 
                   <td>
                     <button
@@ -139,7 +138,7 @@ class Cart extends React.Component {
                     </button>
                   </td>
 
-                  <td>{product.subtotal}</td>
+                  <td>JOD {product.price*product.counter}</td>
                 </tr>
               ))}
             </tbody>
@@ -166,14 +165,16 @@ class Cart extends React.Component {
               <table className="table-total">
                 <tr>
                   <td className="table-td">Subtotal</td>
-                  <td>{this.state.total}</td>
+                  <td>{this.state.subtotal}</td>
                 </tr>
                 <tr>
                   <td className="table-td">Total</td>
-                  <td>{this.state.subtotal}</td>
+                  <td>{this.state.total}</td>
                 </tr>
               </table>
-              <button className="table-button">Proceed to checkout</button>
+              <Link to="/checkout">
+                <button className="table-button">Proceed to checkout</button>
+              </Link>
             </div>
           </div>
         </section>
@@ -182,7 +183,9 @@ class Cart extends React.Component {
       return (
         <div className="empty-container">
           <div>You Cart is empty</div>
-          <button className="table-button3">Back to shopping</button>
+          <Link to="/shop">
+            <button className="table-button3">Back to shopping</button>
+          </Link>
         </div>
       );
     }
@@ -190,3 +193,5 @@ class Cart extends React.Component {
 }
 
 export default Cart;
+
+

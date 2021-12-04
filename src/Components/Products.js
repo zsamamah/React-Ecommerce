@@ -5,9 +5,10 @@ export class Products extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            items: JSON.parse(localStorage.getItem('items'))
+            items: JSON.parse(localStorage.getItem('items')),
         }
     }
+
 
     render() {
         if (!localStorage.getItem('items')) {
@@ -26,3 +27,6 @@ export class Products extends Component {
 }
 
 export default Products
+
+
+
