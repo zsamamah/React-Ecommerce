@@ -1,0 +1,30 @@
+.serviceContainer {
+   
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+    color: #292C6D;
+}
+
+.serviceList{
+    padding: 0.5em;
+    display: flex;
+    flex-direction:column;
+    text-align: center;
+    margin: 0.5em;
+    border: 1px solid lightslategray;
+    height: 30vh;
+}
+
+#icons{
+    color: #292C6D;
+    font-size: 2em;
+    padding: 0.4em;
+    margin: 0.5em;
+}
+
+.serviceList >p{
+padding: 0.5em;
+font-size: 1.5em;
+}
+
