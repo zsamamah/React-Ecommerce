@@ -213,7 +213,7 @@ export default class Checkout extends Component {
         else
         return(
             <>
-            <Hero title="checkoutt Page"/>
+            <Hero title="Checkout Page"/>
             <div className="empty-container">
             <div>You Cart is empty</div>
             <Link to="/shop">

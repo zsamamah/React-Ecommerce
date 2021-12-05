@@ -1,36 +1,47 @@
-import React, { Component } from 'react';
-import '../HomeAssets/Ourteam.css';
-import  '../HomeAssets/im1.jpg'
-class Team extends Component{
-render(){
-this.state=[{name:'Zaid samammaah',title:'Scrum master',image:'im11.jpg'},
-{name:'Shahed khalayleh',title:'Product owner',image:'im10.webp'},
-{name:'Kholoud khraisat',title:'Web developer',image:'im1.jpg'},
-{name:'Rahaf arafeh',title:'Web developer',image:'im12.webp'},
-{name:'Sanad khamash',title:'Web developer',image:'im16.jpg'}
-];
+import React, { Component } from "react";
+import "../HomeAssets/Ourteam.css";
+import "../HomeAssets/im1.jpg";
+class Team extends Component {
+  constructor(props) {
+    super(props);
+    this.state = [
+      { name: "Zaid Samamah", title: "Scrum Master", image: "im11.jpg" },
+      { name: "Shahed Khalayleh", title: "Product Owner", image: "im10.webp" },
+      { name: "Kholoud Khraisat", title: "Web Developer", image: "im1.jpg" },
+      { name: "Rahaf Arafeh", title: "Web Developer", image: "im12.webp" },
+      { name: "Sanad Khamash", title: "Web Developer", image: "im16.jpg" },
+    ];
+  }
 
-     return(
-<div className="cardContainer">
-    <h2>Our Team</h2>
-    <p>lorem ipsum llfmlamfolqmwflmsfsfl</p>
-    <div className="memberContainer" >
-    {this.state.map((teamInfo)=>{
-        return(
-<div className="members">
-<img width="100%"  src={teamInfo.image}/>
-<h3>{teamInfo.name}</h3>
-<p>{teamInfo.title}</p>
-<a href="https://www.facebook.com/"  class="fab fa-facebook-square" ></a>
-
-</div>
-
-)
-})}
-</div>
-
-</div>);}}
-;export default Team
-
-        
-
+  render() {
+    return (
+      <div className="cardContainer">
+        <h2>Our Team</h2>
+        <div className="memberContainer">
+          {this.state.map((teamInfo) => {
+            return (
+              <div className="members">
+                <img width="100%" src={teamInfo.image} alt="Team Member" />
+                <h4>{teamInfo.name}</h4>
+                <p>{teamInfo.title}</p>
+                <a
+                  id="contactIcon"
+                  href="https://www.facebook.com/"
+                ><i className="fab fa-facebook-f"></i></a>
+                <a
+                  id="contactIcon"
+                  href="https://www.linkedin.com/"
+                ><i className="fab fa-linkedin-in"></i></a>
+                <a
+                  id="contactIcon"
+                  href="https://www.twitter.com/"
+                ><i className="fab fa-twitter"></i></a>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    );
+  }
+}
+export default Team;

@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../Cart.css";
 import Image from "../cart.png";
+import Hero from './Hero';
 class Cart extends React.Component {
   state = {
     products: JSON.parse(localStorage.getItem("order")),
@@ -103,6 +104,8 @@ class Cart extends React.Component {
   render() {
     if (this.state.products?.length) {
       return (
+        <>
+        <Hero title="Cart Page"/>
         <section className="cart-container">
           <table className="table-products">
             <thead className="table-head">
@@ -203,9 +206,12 @@ class Cart extends React.Component {
             </div>
           </div>
         </section>
+        </>
       );
     } else {
       return (
+        <>
+        <Hero title="Cart Page"/>
         <div className="empty-container">
           <div className="title-cart">Your cart is currently empty</div>
           <img src={Image} alt="empty cart" className="cart-img" />
@@ -213,6 +219,7 @@ class Cart extends React.Component {
             <button className="table-button3">Back to shopping</button>
           </Link>
         </div>
+        </>
       );
     }
   }

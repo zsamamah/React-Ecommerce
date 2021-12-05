@@ -1,7 +1,5 @@
-import { BrowserRouter, Routes as Switch, Route} from "react-router-dom";
-import Navbar from "./Navbar";
+import { Routes as Switch, Route} from "react-router-dom";
 import Checkout from "./Components/checkout";
-import Footer from "./Components/Footer";
 import Shop from "./Components/Shop";
 import Login from "./Components/Login";
 import Register from "./Components/Register";
@@ -20,8 +18,7 @@ function App() {
           <Route path="/shop" element={<Shop />} />
           <Route path="/admin" element={<Admin />} />
       </Switch>
-      {/* <Footer /> */}
-      {/* <Admin/> */}
+
     </div>
   );
 
