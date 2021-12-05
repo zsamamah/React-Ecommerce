@@ -101,7 +101,7 @@ class Cart extends React.Component {
     }
   };
   render() {
-    if (this.state.products.length) {
+    if (this.state.products?.length) {
       return (
         <section className="cart-container">
           <table className="table-products">
@@ -121,7 +121,11 @@ class Cart extends React.Component {
                 <tr className="table-row">
                   <td></td>
                   <td>
-                    <img src={product.img} alt="product item" className="image-table" />
+                    <img
+                      src={product.img}
+                      alt="product item"
+                      className="image-table"
+                    />
                   </td>
                   <td className="title-products">{product.itemName}</td>
                   <td>JOD {product.price}</td>
