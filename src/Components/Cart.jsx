@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "../Cart.css";
 import Image from "../cart.png";
@@ -79,7 +79,7 @@ class Cart extends React.Component {
   };
   couponDiscount = async () => {
     if (this.state.subtotal !== this.state.total) return;
-    if (this.state.coupon == localStorage.getItem("coupon")) {
+    if (this.state.coupon === localStorage.getItem("coupon")) {
       let newSubTotal = this.state.total - this.state.total * 0.2;
       localStorage.setItem("total", JSON.stringify(newSubTotal));
       this.setState({ total: newSubTotal });
@@ -93,11 +93,10 @@ class Cart extends React.Component {
     }
   };
   redirect = () => {
-    if (localStorage.getItem("isLogged") === "true") {
+    if (localStorage.getItem("logged_in")) {
       return "/checkout";
     } else {
       localStorage.setItem("redirectTo", "/checkout");
-
       return "/account";
     }
   };
@@ -122,7 +121,7 @@ class Cart extends React.Component {
                 <tr className="table-row">
                   <td></td>
                   <td>
-                    <img src={product.img} className="image-table" />
+                    <img src={product.img} alt="product item" className="image-table" />
                   </td>
                   <td className="title-products">{product.itemName}</td>
                   <td>JOD {product.price}</td>
@@ -205,7 +204,7 @@ class Cart extends React.Component {
       return (
         <div className="empty-container">
           <div className="title-cart">Your cart is currently empty</div>
-          <img src={Image} className="cart-img" />
+          <img src={Image} alt="empty cart" className="cart-img" />
           <Link to="/shop">
             <button className="table-button3">Back to shopping</button>
           </Link>

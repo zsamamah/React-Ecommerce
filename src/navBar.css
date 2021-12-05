@@ -210,21 +210,6 @@ nav ul{
     color: goldenrod;
 }
 
-.intro{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-items: center;
-    justify-content: center;
-    text-align: center;
-    width: 50%;
-}
-
-.intro h3{
-    color: goldenrod;
-    font-size: 120%;
-}
-
 .usersContainer{
     /* display: flex;
     justify-content: space-around;

@@ -9,7 +9,8 @@ class Login extends React.Component {
         this.state={
             email:"",
             password:"",
-            remember:false
+            remember:false,
+            redirectTo:'/'
         }
     }
 
@@ -68,10 +69,12 @@ class Login extends React.Component {
       <div id="accounts-form-container">
         <div>
         <h1>Login</h1>
-        {/* Passing data */}
-        {/* Login should where to redirect  */}
+        {localStorage.getItem("redirectTo")?()=>{
+          this.setState({redirectTo:localStorage.getItem("redirectTo")})
+          localStorage.removeItem("redirectTo")
+        }:null}
         <fieldset id="login-fieldset">
-          <form id="login-form" onSubmit={this.handleSubmit}>
+          <form id="login-form" onSubmit={this.handleSubmit} action={localStorage.getItem("redirectTo")?'/checkout':'/'}>
             <div>
               <label htmlFor="login-email">
                 Username or email address

@@ -1,0 +1,40 @@
+.client {
+  width: 100%;
+  height: 100%;
+  background-color: #2945df;
+}
+
+.carousel-icon  i {
+    font-size: 5rem;
+    color: rgba(#fff, 0.3);
+
+}
+.carousel-item i {
+    font-size: 1.6rem;
+    color: rgba(#fff, 0.3);
+}
+
+.t-card {
+  padding: 1.125rem 1.125rem;
+  background-color: rgba(#000, 0.5);
+  border-radius: 1.25rem;
+  color: #fff;
+  height: auto;
+  max-width: 450px;
+  margin: auto;
+}
+
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 1.5625rem solid transparent;
+  border-right: 1.5625rem solid transparent;
+  border-top: 1.25rem solid rgba(#000, 0.5);
+
+}
+
+.text-center {
+  display: block;
+  margin: 0 auto;
+  text-align: center !important ;
+}

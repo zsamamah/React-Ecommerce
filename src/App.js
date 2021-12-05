@@ -8,12 +8,13 @@ import Register from "./Components/Register";
 import Home from "./Components/Home";
 import Cart from "./Components/Cart"
 import Admin from "./pages/admin";
+import Slider from "./Components/Slider";
 function App() {
   return (
     <div className="App">
 
       {/* <Navbar /> */}
-        {/* <Switch>
+        <Switch>
           <Route path="/" element={<Home />} />
             <Route path="/account" element={<Login/>} />
             <Route path="/register" element={<Register />} />
@@ -22,9 +23,7 @@ function App() {
           <Route path="/shop" element={<Shop />} />
 
       </Switch>
-
-      <Footer /> */}
-      <Admin /> 
+      <Footer />
 
     </div>
   );
