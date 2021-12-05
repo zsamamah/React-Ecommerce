@@ -16,7 +16,12 @@ export class Products extends Component {
         } else
             return (
                 <div className='shop-card-grid'>
-                    {
+                    {!this.props.showDelete&&
+                        this.state.items.map((item,index) => {
+                            return <ProductItem showDelete={this.props.showDelete} deleteCard={this.props.deleteCard} num={index} key={item.id} item={item} />
+                        })
+                    }
+                    {this.props.showDelete&&
                         this.props.items.map((item,index) => {
                             return <ProductItem showDelete={this.props.showDelete} deleteCard={this.props.deleteCard} num={index} key={item.id} item={item} />
                         })

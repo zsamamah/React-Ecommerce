@@ -13,10 +13,12 @@ export class Products extends Component {
             counter: 1
         }
     }
-
-
+    
+    
     orders = [];
     minuseClick = () => {
+        let btn=document.querySelector(".shop-card-btn");
+        btn.style.backgroundColor = "rgb(3, 169, 244)";
 
         if (this.state.counter === 1) {
             this.setState({ counter: 1 })
@@ -26,11 +28,15 @@ export class Products extends Component {
     }
 
     plusClick = () => {
+        let btn=document.querySelector(".shop-card-btn");
+        btn.style.backgroundColor = "rgb(3, 169, 244)";
+
         this.setState({ counter: this.state.counter + 1 });
     }
 
     toCart = () => {
-
+        let btn=document.querySelector(".shop-card-btn");
+        btn.style.backgroundColor = "grey";
         let storageProducts = JSON.parse(localStorage.getItem('order'));
         let found = false, index;
         if(storageProducts){
@@ -73,7 +79,7 @@ export class Products extends Component {
                     <p className='shop-card-price'>{this.state.price}</p>
                     {
                         !this.props.showDelete && 
-                        <><div><i class="far fa-minus-square" onClick={this.minuseClick}></i>
+                        <><div className='counterShop'><i class="far fa-minus-square" onClick={this.minuseClick}></i>
                         <p>{this.state.counter}</p>
                         <i class="far fa-plus-square" onClick={this.plusClick}></i></div>
                     <button type='submit' className='shop-card-btn' onClick={this.toCart}>Add To Cart</button>

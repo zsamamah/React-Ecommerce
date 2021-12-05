@@ -63,6 +63,7 @@
 }
 .table-Delete {
   color: rgb(233, 80, 80);
+  cursor: pointer;
 }
 .table-subtotal,
 .discount {

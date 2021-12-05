@@ -7,6 +7,9 @@
     padding: 1rem;
     border: #ccc 1px dotted;
     margin: 0.5rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
   }
   .shop-text-center{
@@ -60,6 +63,23 @@
      padding-bottom:3rem;
     height: 60%; 
    opacity: 1;
+  }
+
+  .counterShop{
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    align-items: center;
+    width:25%;
+  }
+
+  .counterShop p{
+    font-size: 2em;
+    margin:0;
+
+  }
+  .counterShop i{
+    font-size: 1.5em;
   }
   /* .shop-heading{
     margin:2em auto;

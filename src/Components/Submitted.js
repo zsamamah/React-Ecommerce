@@ -16,6 +16,7 @@ class Submitted extends Component {
         this.setState({status:array1})
     }
   render() {
+    if(localStorage.getItem('submittedOrders'))
     return (
       <div>
         {JSON.parse(localStorage.getItem("submittedOrders")).map(
@@ -64,6 +65,8 @@ class Submitted extends Component {
         )}
       </div>
     );
+    else
+    return(<h1>No Submitted orders yet</h1>)
   }
 }
 
