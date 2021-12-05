@@ -18,11 +18,11 @@ export default class Home extends Component {
                 {/* API Weather Sanad */}
                 <Team />
                 <Testimonial />
-                <Slider/>
+                {/* <Slider/> */}
                 {/* Featured products Rahaf */}
                 {/* API Youtube Rahaf */}
 
-                <Youtube />
+                {/* <Youtube /> */}
             </div>
         )
     }

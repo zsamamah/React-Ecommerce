@@ -9,14 +9,14 @@ class Intro extends Component{
 
     render(){
         return(
-<div className="intro">
-    <div className="intro-contents">
+<section className="Home">
+    <div className="main">
 <h1 class="intro-h">Platinum store</h1>
-<p class="intro-p">Platinum is a store of computers, mobile devices and accessories in Jordan. Our advantages strong execlusive offers on the latest products and shipping
+<p class="intro-p"><span className="intro-text">Platinum </span>is a store of computers, mobile devices<br/> and accessories in Jordan. Our advantages strong<br/> execlusive offers on the latest products and shipping<br/>
     your purchases.
 </p>
-<button className="intro-button" >Shop Now !<Link to="/shop"></Link></button>
-</div></div>
+<button className="intro-button" >Shop Now <Link to="/shop"></Link></button>
+</div></section>
 
         )
     }

@@ -16,29 +16,46 @@ margin: 0 auto;
 
 
 
-.cardContainer h2,p{
-    font-size: 2em;
-    color:#292C6D;
+.cardContainer >p{
+    font-size: 1em;
+    color:black;
+    
 }
 
-.cardContainer h2{
+.cardContainer> h2{
     text-align: center;
+    /* padding: 0.5em; */
 }
 
 .members{
-    color: #292C6D;
-    background-color: rgba(3, 169, 244, 0.05);
-    /* border: #161853 0.3em solid; */
+    color: black;
+    background-color: white;
+    box-shadow: 20em rgba(0, 0, 0, 0.1);
+text-align: center;
  margin: 0.5em;
     align-items: center;
     width: 100%;
    
 }
+
+.members >h4{
+    padding: 0.5em;
+}
 .memberContainer{
+    box-shadow: 20em rgba(0, 0, 0, 0.1);
 display: flex;
 
 }
+#contactIcon{
+color: #808080;
+padding: 0.5em;
 
+}
+
+#contactIcon:hover{
+    color: #03a9f4
+    ;
+}
 
 
 @media screen and (max-width: 450px) {
@@ -52,4 +69,13 @@ display: flex;
     }
     .memberContainer{ display: flex;
     flex-direction: column;}
+  }
+
+  @media screen and (max-width: 800px){
+    .memberContainer{
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+
+
   }

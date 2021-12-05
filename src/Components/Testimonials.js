@@ -4,10 +4,10 @@ import image1 from '../HomeAssets/im6.jpg'
 
 class Testimonial extends Component{
 render(){
-this.state=[{name:'Ahmad rami',text:'‟Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim„',image:'im6.jpg'},
-{name:'Jack peter',text:'‟Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim „',image:'im23.jpg'},
-{name:'Ali naser',text:'‟Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim „',image:'im21.jpg'},
-{name:'kristeen',text:'‟Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim „',image:'im20.jpg'},
+this.state=[,
+{name:'Jack peter',text:'‟I am very happy with my first experience with Platinum. The product was amazing thanks i will order again „',image:'im23.jpg'},
+{name:'Ali naser',text:'‟This is my third order. Always on time. The product as seen and expected. Costumer service are prompt and helpful „',image:'im21.jpg'},
+{name:'kristeen',text:'‟Ordered several times n always satisfied with my purchases. Variety of collections with reasonable prices„',image:'im20.jpg'},
 
 ];
 
@@ -20,7 +20,7 @@ return(
             return(
     <div className="people">
     <img width="100%"  src={teamInfo.image}/>
-    <h3>{teamInfo.name}</h3>
+    <h4>{teamInfo.name}</h4>
     <p>{teamInfo.text}</p>
     
     </div>

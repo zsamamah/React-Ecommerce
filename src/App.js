@@ -23,7 +23,7 @@ function App() {
           <Route path="/admin" element={<Admin />} />
       </Switch>
       {/* </BrowserRouter> */}
-      {/* <Footer /> */}
+      <Footer />
 
     </div>
   );
