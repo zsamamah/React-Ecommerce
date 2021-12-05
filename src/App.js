@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Routes as Switch, Route } from "react-router-dom";
 import Navbar from "./Navbar";
-import Cart from "./Components/Cart.jsx";
 import Checkout from "./Components/checkout";
 import Footer from "./Components/Footer";
 import Shop from "./Components/Shop";
@@ -14,7 +13,7 @@ function App() {
     <div className="App">
 
       {/* <Navbar /> */}
-        <Switch>
+        {/* <Switch>
           <Route path="/" element={<Home />} />
             <Route path="/account" element={<Login/>} />
             <Route path="/register" element={<Register />} />
@@ -24,8 +23,8 @@ function App() {
 
         </Switch>
 
-      <Footer />
-      <Admin />
+      <Footer /> */}
+      <Admin /> 
 
     </div>
   );

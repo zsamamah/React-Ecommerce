@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "../Cart.css";
-
+import Image from "../cart.png";
 class Cart extends React.Component {
   state = {
     products: JSON.parse(localStorage.getItem("order")),
@@ -107,30 +107,24 @@ class Cart extends React.Component {
         <section className="cart-container">
           <table className="table-products">
             <thead className="table-head">
-              <tr>
+              <tr className="table-header">
                 <th></th>
                 <th></th>
                 <th>Product</th>
                 <th>Price</th>
                 <th>Quantity</th>
                 <th>Subtotal</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
               {JSON.parse(localStorage.getItem("order")).map((product) => (
-                <tr>
-                  <td>
-                    <button
-                      className="table-button2"
-                      onClick={() => this.handleDelete(product)}
-                    >
-                      x
-                    </button>
-                  </td>
+                <tr className="table-row">
+                  <td></td>
                   <td>
                     <img src={product.img} className="image-table" />
                   </td>
-                  <td>{product.itemName}</td>
+                  <td className="title-products">{product.itemName}</td>
                   <td>JOD {product.price}</td>
 
                   <td>
@@ -151,6 +145,12 @@ class Cart extends React.Component {
                   </td>
 
                   <td>JOD {product.price * product.counter}</td>
+                  <td
+                    onClick={() => this.handleDelete(product)}
+                    className="table-Delete"
+                  >
+                    Delete
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -173,11 +173,11 @@ class Cart extends React.Component {
 
           <div className="cart-total">
             <div className="cart-totals">
-              <h3>Cart Totals</h3>
+              <h3 className="table-title">Cart Totals</h3>
               <table className="table-total">
                 <tr>
                   <td className="table-td">Subtotal</td>
-                  <td>JOD {this.state.subtotal}</td>
+                  <td className="table-subtotal">JOD {this.state.subtotal}</td>
                 </tr>
                 {this.state.discounted ? (
                   <tr>
@@ -189,12 +189,14 @@ class Cart extends React.Component {
                 )}
                 <tr>
                   <td className="table-td">Total</td>
-                  <td>JOD {this.state.total}</td>
+                  <td className="table-subtotal">JOD {this.state.total}</td>
                 </tr>
               </table>
-              <Link to={this.redirect()}>
-                <button className="table-button">Proceed to checkout</button>
-              </Link>
+              <div className="btn-checkout">
+                <Link to={this.redirect()}>
+                  <button className="table-button">Proceed to checkout</button>
+                </Link>
+              </div>
             </div>
           </div>
         </section>
@@ -202,7 +204,8 @@ class Cart extends React.Component {
     } else {
       return (
         <div className="empty-container">
-          <div>You Cart is empty</div>
+          <div className="title-cart">Your cart is currently empty</div>
+          <img src={Image} className="cart-img" />
           <Link to="/shop">
             <button className="table-button3">Back to shopping</button>
           </Link>
