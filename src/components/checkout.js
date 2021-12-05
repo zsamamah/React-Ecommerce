@@ -53,7 +53,7 @@ export default class Checkout extends Component {
     }
 
     handlePayment= (e)=>{
-        e.target.value=="cash"?this.setState({cashMsg1:"flex",cashMsg2:'none'}):this.setState({cashMsg1:'none',cashMsg2:'flex'})
+        e.target.value==="cash"?this.setState({cashMsg1:"flex",cashMsg2:'none'}):this.setState({cashMsg1:'none',cashMsg2:'flex'})
     }
 
     totalPrice = ()=>{

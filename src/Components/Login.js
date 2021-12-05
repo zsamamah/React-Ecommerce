@@ -57,7 +57,7 @@ class Login extends React.Component {
     logout = () => {
         localStorage.removeItem("logged_in");
         this.setState({});
-    };
+    }
     badImage = (e)=>{
         e.target.onerror = null;
         e.target.src=tempMan

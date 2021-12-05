@@ -1,3 +1,17 @@
 body {
       background-color: whitesmoke;
 }
+nav.navbar.noTransparrent {
+      background-color: #ffffff;
+      color: black;
+      border-bottom: 1px solid #eee;
+  }
+  .navbar-brand img{
+        width: 2em;
+  }
+.nav-link{
+        color: white;
+}
+#casting-color{
+      color: black;
+}

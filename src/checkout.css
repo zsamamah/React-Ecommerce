@@ -32,7 +32,8 @@
 .checkout-left{
     display: flex;
     justify-content: center;
-    height: 60vh;
+    height: 100vh;
+    margin-top: 2em;
     width: 46%;
     background-color: white;
     border-style: solid;
@@ -50,6 +51,7 @@
     width: 48%;
     justify-content: space-evenly;
     height: 60vh;
+    margin-top: 2em;
     background-color: white;
     border-style: solid;
     border-color: rgba(219, 219, 219, 0.566);
