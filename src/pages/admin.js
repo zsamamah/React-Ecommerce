@@ -3,13 +3,17 @@ import CardsContainter from '../Components/cardsContainter'
 import AddField from '../Components/addField'
 import UsersContainer from '../Components/usersContainer'
 import '../navBar.css'
+import Submitted from '../Components/Submitted'
+import Products from '../Components/Products'
+import Hero from '../Components/Hero'
 
 export default class Admin extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props)
-        this.state={
-            cards : JSON.parse(localStorage.getItem("items")),
+    
+        this.state = {
+             items:JSON.parse(localStorage.getItem("items")),
         }
     }
 
@@ -18,13 +22,15 @@ export default class Admin extends Component {
         this.deleted.splice(index1,1);
         localStorage.setItem("items",JSON.stringify(this.deleted))
         this.setState({
-            cards : JSON.parse(localStorage.getItem("items"),)
+            items : JSON.parse(localStorage.getItem("items"),)
         })
     }
+    
+    
 
     handleFormSubmit =()=>{
         this.setState({
-            cards :  JSON.parse(localStorage.getItem("items"),),
+            items :  JSON.parse(localStorage.getItem("items")),
         })
     }
 
@@ -33,14 +39,11 @@ export default class Admin extends Component {
             <>
                 <AddField handleFormSubmit={this.handleFormSubmit} />
                 <br/>
-                <CardsContainter
-                    showDelete={true}
-                    deleteCard={this.deleteCard}
-                    cards={this.state.cards}
-                    conClassName="cards_container"
-                />
+                <Products showDelete={true} items={this.state.items} deleteCard={this.deleteCard} />
                 <UsersContainer />
+                <Submitted/>
             </>
         )
     }
 }
+

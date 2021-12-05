@@ -17,8 +17,8 @@ export class Products extends Component {
             return (
                 <div className='shop-card-grid'>
                     {
-                        this.state.items.map(item => {
-                            return <ProductItem key={item.id} item={item} />
+                        this.props.items.map((item,index) => {
+                            return <ProductItem showDelete={this.props.showDelete} deleteCard={this.props.deleteCard} num={index} key={item.id} item={item} />
                         })
                     }
                 </div>
@@ -27,6 +27,5 @@ export class Products extends Component {
 }
 
 export default Products
-
 
 

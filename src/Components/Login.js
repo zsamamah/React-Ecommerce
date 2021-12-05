@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import '../accounts.css';
 import tempMan from './accounts-assets/temp_man.jpg';
+import Hero from "./Hero";
 
 class Login extends React.Component {
     constructor(props){
@@ -66,6 +67,8 @@ class Login extends React.Component {
   render() {
       if(!localStorage.getItem("logged_in"))
     return (
+      <>
+      <Hero title="Account Page"/>
       <div id="accounts-form-container">
         <div>
         <h1>Login</h1>
@@ -104,10 +107,13 @@ class Login extends React.Component {
         </fieldset>
       </div>
       </div>
+      </>
     );
     else{
         let logged_user=JSON.parse(localStorage.getItem("logged_in"))
         return(
+          <>
+          <Hero title="Account Page"/>
           <div id="accounts-form-container">
           <div>
             <h1>Hello {logged_user.fname}</h1>
@@ -153,6 +159,7 @@ class Login extends React.Component {
             </div>
             </div>
             </div>
+            </>
         )
     }
   }

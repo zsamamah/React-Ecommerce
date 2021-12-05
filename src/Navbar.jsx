@@ -44,6 +44,10 @@ class Navbar extends React.Component{
             <Link to="/" className="nav-link text-light casting-color active" aria-current="page">Home</Link>
             </li>
             <li className="nav-item">
+            <Link to="/shop" className="nav-link text-light casting-color">
+                  Shop</Link>
+            </li>
+            <li className="nav-item">
             <Link to="/account" className="nav-link text-light casting-color">
                   {this.state.loggedin?"Account":"Login"}</Link>
             </li>

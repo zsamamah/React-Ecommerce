@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {countries} from './countries.'
 import { Link } from "react-router-dom";
 import '../checkout.css'
+import Hero from './Hero';
 
 export default class Checkout extends Component {
     constructor(props){
@@ -66,6 +67,8 @@ export default class Checkout extends Component {
     render() {
         if(this.state.redirect)
         return (
+            <>
+            <Hero title="Checkout Page"/>
             <div className="empty-container">
             <div>Your order is submitted, it will be delivered within 2 to three weeks!</div>
             <div className="checkout-orderDetails">
@@ -83,10 +86,13 @@ export default class Checkout extends Component {
               <button className="table-button3">continue shopping</button>
             </Link>
           </div>
+          </>
         )
 
         if(this.order)
         return (
+            <>
+            <Hero title="Checkout Page"/>
             <div className='checkout-container'>
                     <form action='' onSubmit={this.handleSubmit}>
                         <div className='checkout-left'>
@@ -202,15 +208,19 @@ export default class Checkout extends Component {
                 </div>
                 </form>
             </div>
+            </>
         )
         else
         return(
+            <>
+            <Hero title="checkoutt Page"/>
             <div className="empty-container">
             <div>You Cart is empty</div>
             <Link to="/shop">
               <button className="table-button3">Back to shopping</button>
             </Link>
           </div>
+          </>
         )
     }
 }

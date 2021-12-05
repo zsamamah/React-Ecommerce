@@ -58,6 +58,10 @@ export class Products extends Component {
 
     }
 
+    deleteCard =() =>{
+        this.props.deleteCard(this.props.num)
+    }
+
 
     render() {
         // const { img, itemName, price } = this.state.;
@@ -67,11 +71,17 @@ export class Products extends Component {
                     <img src={this.state.img} alt='' className='shop-card-img' />
                     <p className='shop-card-label'>{this.state.itemName}</p>
                     <p className='shop-card-price'>{this.state.price}</p>
-                    <div><i class="far fa-minus-square" onClick={this.minuseClick}></i>
-
+                    {
+                        !this.props.showDelete && 
+                        <><div><i class="far fa-minus-square" onClick={this.minuseClick}></i>
                         <p>{this.state.counter}</p>
                         <i class="far fa-plus-square" onClick={this.plusClick}></i></div>
                     <button type='submit' className='shop-card-btn' onClick={this.toCart}>Add To Cart</button>
+                </>
+                }
+                {
+                    this.props.showDelete && <button className="deleteBtn" onClick={this.deleteCard}>Delete Card</button>
+                }
                 </div>
             </div>
         )

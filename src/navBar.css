@@ -24,25 +24,11 @@
 }
 
 .prdCard img{
-    width: 75%;
+    /* width: 75%; */
 }
 
 .deleteBtn{
-    width: 75%;
-}
-
-.comment{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.comment textarea{
-    width: 100%;
-}
-
-.likeBtn{
-    cursor: pointer;
+    /* width: 75%; */
 }
 
 .prevComments{
@@ -138,11 +124,7 @@
 .userCommented{
     display: flex;
     flex-direction: column;
-
 }
-
-
-
 
 .homeUser{
     display: flex;
@@ -199,9 +181,6 @@
     padding: 2em;
 }
 
-
-
-
 .userCard{
     display: flex;
     flex-direction: column;
@@ -231,16 +210,19 @@
     border-radius: 50%;
     height: 5em;
 }
-.admin-users-container button{
+.admin-users-container button,.deleteBtn{
     border: none;
     border-radius: 0.4em;
-    background-color: rgb(252, 22, 22);
+    background-color: rgb(243, 21, 21);
     padding: 0.5em;
     color: white;
 }
-
-
-
-
-
-
+.admin-users-container button:hover,.deleteBtn:hover{
+    background-color: rgb(233, 40, 40);;
+}
+.admin-users-container select{
+    border: none;
+    padding: 0.2em;
+    margin-left: 0.2em;
+    border-radius: 1em;
+}
