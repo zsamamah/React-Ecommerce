@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import adminPic from "./accounts-assets/admin.png";
 import { countries } from "./countries.";
 import "../accounts.css";
+import Hero from "./Hero";
 
 export class Register extends Component {
   constructor(props) {
@@ -155,6 +156,8 @@ export class Register extends Component {
   };
   render() {
     return (
+      <>
+      <Hero title="Register Page"/>
       <div id="accounts-form-container">
         <div>
         <h1>Register</h1>
@@ -271,6 +274,7 @@ export class Register extends Component {
         </fieldset>
       </div>
       </div>
+      </>
     );
   }
 }

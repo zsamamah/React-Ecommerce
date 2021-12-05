@@ -119,12 +119,12 @@ export class Slider extends Component {
                   class="left fa fa-chevron-left btn btn-outline-black ps-3 pe-3"
                   href="#carouselExampleCaptions"
                   data-bs-slide="prev"
-                > Previous</a>
+                >{null}</a>
                 <a
                   class="right fa fa-chevron-right btn btn-outline-black ps-3 pe-3"
                   href="#carouselExampleCaptions"
                   data-bs-slide="next"
-                > Next</a>
+                >{null}</a>
               </div>
             </div>
           </div>
