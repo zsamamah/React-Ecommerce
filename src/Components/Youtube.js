@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../youtube.css'
 
 const API = 'AIzaSyDp9zBtqS-rOGZJUlpRqUNGCqXfQFJyOfQ';
-const maxResults = 3;
+const maxResults = 1;
 const channelId = `UCWwgaK7x0_FR1goeSRazfsQ`;
 var finalUrl = `https://www.googleapis.com/youtube/v3/search?key=${API}&channelId=${channelId}&part=snippet,id&order=date&maxResults=${maxResults}`;
 

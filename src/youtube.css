@@ -4,17 +4,25 @@
 }
 .youtube-btn{
  padding: 1em;
- background-color: rgb(3, 169, 244) ;
+ background-color: orange;
  color: #fff;
  border-radius: 0.2em;
  border: none;
- margin:auto;
+
+ display: block;
+ margin: 0 auto;
+ text-align: center !important ;
 }
 .youtube-btn:hover{
     cursor: pointer;
+    color: black;
     font-weight: bold;
-    background-color: grey;
+    background-color: #fff;
 }
 .youtube-container{
    text-align: center;
+   
+}
+.youtube-container iframe{
+    width: 50%;
 }

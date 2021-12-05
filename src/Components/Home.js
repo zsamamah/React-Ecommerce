@@ -12,17 +12,18 @@ export default class Home extends Component {
     render() {
         return (
             <div className="homePageContainer">
-                <Intro/>
-                <Service/>
+                <Intro />
+                <Service />
                 {/* Intro background Khoulud  */}
                 {/* API Weather Sanad */}
-                <Team />
                 <Testimonial />
-                <Slider/>
+                <Slider />
+                <Team />
                 {/* Featured products Rahaf */}
                 {/* API Youtube Rahaf */}
 
                 <Youtube />
+
             </div>
         )
     }

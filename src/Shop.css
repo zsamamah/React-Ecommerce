@@ -24,7 +24,7 @@
   .shop-card-grid{
     display: grid;
     grid-template-columns: repeat(3,1fr);
-    grid-gap: 1em
+    grid-gap: 2em
   }
   .shop-card-img{
     width: 20em;
