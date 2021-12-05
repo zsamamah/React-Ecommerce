@@ -11,7 +11,7 @@ import Admin from "./pages/admin";
 function App() {
   return (
     <div className="App">
-        {/* <Switch>
+        <Switch>
           <Route path="/" element={<Home />} />
           <Route path="/account" element={<Login/>} />
           <Route path="/register" element={<Register />} />
@@ -19,9 +19,9 @@ function App() {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/admin" element={<Admin />} />
-      </Switch> */}
+      </Switch>
       {/* <Footer /> */}
-      <Admin/>
+      {/* <Admin/> */}
     </div>
   );
 
