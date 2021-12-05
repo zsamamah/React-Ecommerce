@@ -1,0 +1,20 @@
+.youtube-btn-container{
+    max-width: 960;
+    margin: 1em auto;
+}
+.youtube-btn{
+ padding: 1em;
+ background-color: rgb(3, 169, 244) ;
+ color: #fff;
+ border-radius: 0.2em;
+ border: none;
+ margin:auto;
+}
+.youtube-btn:hover{
+    cursor: pointer;
+    font-weight: bold;
+    background-color: grey;
+}
+.youtube-container{
+   text-align: center;
+}

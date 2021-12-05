@@ -51,6 +51,7 @@
   border: none;
   border-radius: 0.5em;
   color: #fff;
+  margin-left: 0.4em;
 }
 .table-button4 {
   margin-top: 1em;
@@ -60,7 +61,13 @@
   border-radius: 0.5em;
   color: #fff;
 }
-
+.table-Delete {
+  color: rgb(233, 80, 80);
+}
+.table-subtotal,
+.discount {
+  padding-left: 1em;
+}
 .table-td {
   width: 10%;
   background-color: rgb(250, 250, 250);
@@ -76,6 +83,7 @@
   border: none;
   border-radius: 0.5em;
   color: #fff;
+  margin-right: 0.4em;
 }
 .table-button3 {
   padding: 0.6em;
@@ -107,31 +115,63 @@
     font-size: 0.8em;
   }
 }
+.cart-img {
+  width: 9em;
+}
+.title-cart {
+  margin: 1em;
+  color: #03a9f4;
+  font-size: 2em;
+}
 .discount {
   color: red;
 }
-@media screen and (max-width: 500px) {
-  .table-button2,
-  .table-button4 {
-    font-size: 0.7em;
+@media screen and (max-width: 640px) {
+  .table-header {
+    display: none;
+  }
+  .table-row {
+    display: flex;
+    flex-direction: column;
+  }
+  .image-table {
+    width: 9em;
+  }
+  .table-products {
+    width: 80%;
+  }
+
+  .table-footer {
+    width: 80%;
+    margin: 0 auto;
   }
   .table-input {
-    font-size: 0.8em;
+    width: 20%;
   }
-  .table-btn {
-    font-size: 0.7em;
+  .cart-totals {
+    width: 80%;
+    margin: 2em auto;
   }
-  th,
-  h3 {
-    font-size: 1em;
+  .table-title {
+    text-align: center;
+    margin-bottom: 1em;
   }
-  .table-button {
-    font-size: 0.7em;
+  .btn-checkout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-}
-@media screen and (max-width: 470px) {
-  th,
-  h3 {
-    font-size: 0.8em;
+  .table-total {
+    height: 4em;
+  }
+  .table-button,
+  .table-button2 {
+    margin: 0.8em;
+  }
+  .title-products {
+    font-size: 1.5em;
+  }
+  .table-row {
+    border-bottom: 1px solid rgb(218, 213, 213);
   }
 }

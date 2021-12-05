@@ -1,0 +1,55 @@
+.intro{
+    background-image: url("./HomeAssets/BG6.jpeg");
+    margin: 0 auto;
+    text-align: left;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+   
+    
+}
+
+.intro-p ,.intro-h {
+    color:white;
+
+    
+}
+
+
+.intro-contents{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width:50%;
+    height: 40%;
+    justify-content:space-around;
+    margin-left: 10%;
+}
+.intro-button{
+
+    padding: 1em;
+    border-radius: 1.5em;
+    background-color:#EC255A;
+    color: white;
+    font-weight: bold;
+    width:fit-content;
+    box-shadow:darkblue;
+    border: none;
+    
+}
+
+.intro-button:hover{
+background-color: whitesmoke;
+color: #292C6D;
+
+}
+@media screen and (max-width: 450px) {
+    .intro-contents {
+      font-size: 1em;
+      width: 100%;
+  }
+
+
+}

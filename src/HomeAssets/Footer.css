@@ -11,13 +11,13 @@
     
     }
 
-    .footer p {
+    .footer> p {
         color:#FAEDF0;
         font-size: 1em;
         text-align: center;
 
     }
-    .social a{
+    .social >a{
      margin: 0.5em;
      padding: 0.5em;
      font-size: 1.5em;

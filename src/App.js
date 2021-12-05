@@ -21,10 +21,10 @@ function App() {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/shop" element={<Shop />} />
 
-        </Switch>
+      </Switch>
 
       <Footer /> */}
-      <Admin />
+      <Admin /> 
 
     </div>
   );
