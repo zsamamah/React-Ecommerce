@@ -70,8 +70,8 @@ class Login extends React.Component {
       <>
       <Hero title="Account Page"/>
       <div id="accounts-form-container">
-        <div>
-        <h1>Login</h1>
+        <div className="login-container">
+        <h1 className="login-title">Login</h1>
         {localStorage.getItem("redirectTo")?()=>{
           this.setState({redirectTo:localStorage.getItem("redirectTo")})
           localStorage.removeItem("redirectTo")
@@ -94,14 +94,11 @@ class Login extends React.Component {
               <input type="password" id="login-password" onChange={this.handleChange} required />
             </div>
             <div id="remember-me-container">
-              <div><button type="submit" className="accounts-form-btn">Log in</button></div>
-              <div><input type="checkbox" id="remember-me" onChange={this.handleChange} />
-              <label htmlFor="remember-me">
-                Rememeber Me
-              </label></div>
+              <div className="btn-login"><button type="submit" className="accounts-form-btn">Log in</button></div>
+              
             </div>
-            <div>
-        <Link to="/register">Don't have an account? Signup here!</Link>
+            <div  className="a-login">
+        <Link to="/register" className="a-login">Don't have an account? Signup here!</Link>
         </div>
           </form>
         </fieldset>
