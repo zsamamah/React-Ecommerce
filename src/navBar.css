@@ -112,15 +112,16 @@
 }
 
 .AddForm{
-    display: grid;
+    display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    /* justify-content: space-around; */
     align-items: center;
-    /* border-style: solid; */
-    /* width: max-content; */
-    height: 25vh;
+    gap: 0.5em;
+    /* width: 50%; */
 }
-
+textarea{
+    height: 10em;
+}
 .userCommented{
     display: flex;
     flex-direction: column;
@@ -225,4 +226,23 @@
     padding: 0.2em;
     margin-left: 0.2em;
     border-radius: 1em;
+}
+.orderCars{
+    border: 1px solid black;
+    border-radius: 0.4em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 0.3em;
+    padding: 0.5em;
+}
+.orderCars select{
+    border: none;
+    border-radius: 0.4em;
+    padding: 0.5em;
+}
+.grid-orders{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 0.5em;
 }

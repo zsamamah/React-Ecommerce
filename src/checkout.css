@@ -50,7 +50,7 @@
     flex-direction: column;
     width: 48%;
     justify-content: space-evenly;
-    height: 60vh;
+    height: 70vh;
     margin-top: 2em;
     background-color: white;
     border-style: solid;
@@ -61,6 +61,9 @@
 
 .checkout-summary{
     width: 90%;
+}
+.checkout-summary td{
+    padding-left:1em;
 }
 
 .checkout-summary table, .checkout-summary th, .checkout-summary td{

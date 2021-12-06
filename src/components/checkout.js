@@ -182,7 +182,7 @@ export default class Checkout extends Component {
                                     )}
                                 <tr>
                                     <td className="table-grey">Subtotal</td>
-                                    <td>{this.totalPrice()}</td>
+                                    <td>JOD {this.totalPrice()}</td>
                                 </tr>
                                 <tr>
                                     <td>Discount</td>
@@ -191,7 +191,7 @@ export default class Checkout extends Component {
                                 </tr>
                                 <tr>
                                     <td className="table-grey">Total</td>
-                                    <td>{Math.round((JSON.parse(localStorage.getItem('total'))) * 100) / 100}</td>
+                                    <td>JOD {Math.round((JSON.parse(localStorage.getItem('total'))) * 100) / 100}</td>
                                     
                                 </tr>
                             </tbody>

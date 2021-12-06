@@ -23,6 +23,5 @@ export class Products extends Component {
             )
     }
 }
-
 export default Products
 

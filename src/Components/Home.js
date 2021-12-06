@@ -4,7 +4,7 @@ import Team from './Ourteam';
 import Intro from './Intro.js';
 import Service from './Services';
 import Youtube from './Youtube';
-import Slider from './Slider'
+import Slider from './Slider';
 
 export default class Home extends Component {
 
@@ -18,7 +18,6 @@ export default class Home extends Component {
                 <Slider />
                 <Team />
                 <Youtube />
-
             </div>
         )
     }

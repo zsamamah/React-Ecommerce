@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import tempMan from './accounts-assets/temp_man.jpg'
+import Hero from './Hero';
 
 export default class UsersContainer extends Component {
     constructor(props){
@@ -33,6 +34,8 @@ export default class UsersContainer extends Component {
 
     render() {
         return (
+            <>
+            <Hero title="Users"/>
             <div className='usersContainer'>
                 {this.state.users.map((user,indx)=>{
                     return <div className="admin-users-container" key={indx}>
@@ -95,6 +98,7 @@ export default class UsersContainer extends Component {
                     })}
                     </ul> */}
             </div>
+            </>
         )
     }
 }

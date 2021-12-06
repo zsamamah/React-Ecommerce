@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Hero from "./Hero";
 
 class Submitted extends Component {
     constructor(props) {
@@ -18,11 +19,13 @@ class Submitted extends Component {
   render() {
     if(localStorage.getItem('submittedOrders'))
     return (
-      <div>
+      <>
+      <Hero title="Submitted Orders"/>
+      <div className="grid-orders">
         {JSON.parse(localStorage.getItem("submittedOrders")).map(
           (order, indx) => {
             return (
-              <div>
+              <div key={indx} className="orderCars">
                 <div>
                     Full Name : 
                     {order.fname} {order.lname}
@@ -64,6 +67,7 @@ class Submitted extends Component {
           }
         )}
       </div>
+      </>
     );
     else
     return(<h1>No Submitted orders yet</h1>)

@@ -8,17 +8,21 @@ import Cart from "./Components/Cart";
 import React from "react";
 import AddField from "./Components/addField";
 import NotFound from "./Components/notfound";
-import Hero from "./Components/Hero";
 import UsersContainer from "./Components/usersContainer";
 import Submitted from "./Components/Submitted";
 import Navbar from "./Navbar";
+import Footer from "./Components/Footer";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       isLoggedIn: JSON.parse(localStorage.getItem("logged_in")),
+      items: JSON.parse(localStorage.getItem("items")),
     };
+  }
+  handleChangeitem=()=>{
+    this.setState({items:JSON.parse(localStorage.getItem('items'))})
   }
 
   handleChangeRole = () => {
@@ -26,31 +30,23 @@ class App extends React.Component {
       isLoggedIn: JSON.parse(localStorage.getItem("logged_in")),
     });
   };
+  deleteCard = (index1) => {
+    this.deleted = JSON.parse(localStorage.getItem("items"));
+    this.deleted.splice(index1, 1);
+    localStorage.setItem("items", JSON.stringify(this.deleted));
+    this.setState({
+      items: JSON.parse(localStorage.getItem("items")),
+    });
+  };
 
   render() {
-    // if (this.state.isLoggedIn != null)
-    //   if (this.state.isLoggedIn.role === "admin")
-    //     return (
-    //       <>
-    //         <NavBarAdmin handleChangeRole={this.handleChangeRole} />
-    //         <Switch>
-    //           <Route
-    //             to="/"
-    //             element={<AddField handleFormSubmit={this.handleFormSubmit} />}
-    //           />
-    //           <Route path="/users" element={<UsersContainer />} />
-    //           <Route path="/orders" element={<Submitted />} />
-    //           {/* <Route path="*" element={<NotFound />} /> */}
-    //         </Switch>
-    //       </>
-    //     );
         return (
           <>
             <Navbar loggedIn={this.state.isLoggedIn}/>
             <Switch>
             <Route
                 path="/products"
-                element={<AddField />}
+                element={<AddField items={this.state.items} deleteCard={this.deleteCard} handleChangeitem={this.handleChangeitem}/>}
               />
               <Route path="/users" element={<UsersContainer />} />
               <Route path="/orders" element={<Submitted />} />
@@ -65,6 +61,7 @@ class App extends React.Component {
               <Route path="/shop" element={<Shop />} />
               <Route path="*" element={<NotFound />} />
             </Switch>
+            <Footer/>
           </>
         );
   }
