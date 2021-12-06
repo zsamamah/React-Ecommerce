@@ -48,14 +48,13 @@ class Navbar extends React.Component{
                   Shop</Link>
             </li>
             <li className="nav-item">
+            <Link to="/cart" className="nav-link text-light casting-color">Cart</Link>
+            </li>
+            <li className="nav-item">
             {this.state.loggedin?
              <Link to="/account" className="nav-link text-light casting-color">Account</Link>
              :
              <Link to="/account" className="nav-link text-light casting-color">Login</Link>}
-
-            </li>
-            <li className="nav-item">
-            <Link to="/cart" className="nav-link text-light casting-color">Cart</Link>
             </li>
 
 

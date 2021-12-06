@@ -24,19 +24,20 @@
   align-items: center;
   box-shadow: 20em rgba(0, 0, 0, 0.1);
   text-align: center;
-  height: 50vh;
+  height:50vh;
   padding: 0.5em;
   margin: 2em;
 }
 .people img {
   width: 50%;
-  height: 50%;
   border-radius: 50%;
   padding: 0.5em;
+  height: 15vh;
+
 }
 .people h4 {
   padding: 0.5em;
-  font-size: 2em;
+  font-size: 1.6em;
 }
 .testimonials {
   width: 80%;
@@ -45,25 +46,19 @@
   margin: 0 auto;
 }
 
+.testimonials-p {
+  font-size: 0.9em;
+}
+
+
 @media screen and (max-width: 634px) {
   .people {
     width: 70%;
   }
 }
 @media screen and (max-width: 1440px) {
-  .people {
-    height: 50vh;
-  }
 
-  .people img {
-    height: 15vh;
-  }
-  .testimonials-p {
-    font-size: 0.9em;
-  }
-  .people h4 {
-    font-size: 1.6em;
-  }
+
 }
 
 @media screen and (max-width: 1060px) {
