@@ -5,13 +5,20 @@ import "../Shop.css";
 
 
 export class Shop extends Component {
+    constructor(props){
+        super(props)
+        this.state={
+            items:JSON.parse(localStorage.getItem('items'))
+        }
+    }
+
     render() {
         return (
             <>
             <Hero title="Shop Page"/>
             <div >
                 <div className='shop-container'>
-                    <Products />
+                    <Products items={this.state.items} />
                 </div>
             </div>
             </>
