@@ -9,8 +9,13 @@ import Image from "../cart.png";
 export default class Checkout extends Component {
     constructor(props){
         super(props)
+        this.loggedIn=JSON.parse(localStorage.getItem('logged_in'));
         this.state={
-            loggedIn:JSON.parse(localStorage.getItem('loggedIn')),
+            fname:this.loggedIn.fname,
+            lname:this.loggedIn.lname,
+            email:this.loggedIn.email,
+            phone:this.loggedIn.phone,
+            country:this.loggedIn.country,
             cashMsg1:'flex',
             cashMsg2:'none',
             redirect:null,
@@ -19,13 +24,19 @@ export default class Checkout extends Component {
 
     }
 
+    handleChange=(e)=>{
+        this.setState({
+            [e.target.name]:e.target.value
+        })
+    }
+
 
     handleSubmit=(e)=>{
         e.preventDefault()
         this.checkoutInfo={
-            // firstName:e.target.fName.value,
-            // lastName:e.target.lName.value,
-            country:e.target.country.value,
+            fname:this.state.fname,
+            lname:this.state.lname,
+            country:this.state.country,
             streetAddress:e.target.streetAddress.value,
             town:e.target.town.value,
             state: e.target.state.value,
@@ -34,7 +45,11 @@ export default class Checkout extends Component {
             coupon:"cat",
             discount:JSON.parse(localStorage.getItem('total'))-JSON.parse(localStorage.getItem('subTotal')),
             payment: this.state.cashMsg1==="flex"? "Cash":"Credit Card",
-            status:"Pending"
+            status:"Pending",
+            phone:this.state.phone,
+            email:this.state.email,
+            orders:this.order,
+            subTotal:JSON.parse(localStorage.getItem('subTotal'))
         }
 
         
@@ -42,10 +57,8 @@ export default class Checkout extends Component {
         if(ordersArr){
             ordersArr.push(this.checkoutInfo)
             localStorage.setItem('submittedOrders',JSON.stringify(ordersArr));
-            console.log(ordersArr,1)
         }else{
             localStorage.setItem('submittedOrders',JSON.stringify([this.checkoutInfo]));
-            console.log(ordersArr,2)
         }
         localStorage.removeItem('order');
         localStorage.removeItem('subTotal');
@@ -104,16 +117,16 @@ export default class Checkout extends Component {
                                 <div className='checkout-adjacent'>
                                     <label>
                                         <p>First Name:</p>
-                                        {/* <input type="text" name="fName" onChange={this.handleChange}></input>{this.state.loggedIn[0]} */}
+                                        <input type="text" name="fname" value={this.state.fname} onChange={this.handleChange}/>
                                     </label>
                                     <label>
                                         <p>Last Name:</p>
-                                        {/* <input type="text" name="lName" onChange={this.handleChange}></input>{this.state.loggedIn[1]} */}
+                                        <input type="text" name="lname" onChange={this.handleChange} value={this.state.lname}/>
                                     </label>
                                 </div>
                                 <label>
                                     <p>Country/Region</p>
-                                    <select required name="country">
+                                    <select value={this.state.country}  onChange={this.handleChange} required name="country">
 
                                         {countries.map((element,i)=>{return<option key={i}>{element.name}</option>
                                         })}
@@ -135,14 +148,14 @@ export default class Checkout extends Component {
                                     <p>Postcode / ZIP</p>
                                     <input required type="text" name="zip"></input>
                                 </label>
-                                {/* <label>
+                                <label>
                                     <p>Phone</p>
-                                    <input required type="text">{this.state.loggedIn[3]}</input>
+                                    <input onChange={this.handleChange} required name="phone" type="tel" value={this.state.phone}/>
                                     </label>
                                     <label>
                                     <p>Email address</p>
-                                    <input required type="text">{this.state.loggedIn[2]}</input>
-                                </label> */}
+                                    <input onChange={this.handleChange} required type="email" name="email" value={this.state.email}/>
+                                </label>
                             </div>
                         </div>
                 <div className='checkout-right'>
@@ -158,12 +171,16 @@ export default class Checkout extends Component {
                                 {this.order.map((element,i)=>
                                     <tr>
                                     <td>{element.itemName}</td>
-                                    <td>JOD ${element.price*element.counter}</td>
+                                    <td>JOD {element.price*element.counter}</td>
                                     </tr>
                                     )}
                                 <tr>
                                     <td className="table-grey">Subtotal</td>
                                     <td>{this.totalPrice()}</td>
+                                </tr>
+                                <tr>
+                                    <td>Discount</td>
+                                    <td className="discount">JOD {JSON.parse((localStorage.getItem('total'))-JSON.parse(localStorage.getItem('subTotal')).toFixed(2))}</td>
                                 </tr>
                                 <tr>
                                     <td className="table-grey">Total</td>
