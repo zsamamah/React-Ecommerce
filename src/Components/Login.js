@@ -33,6 +33,7 @@ class Login extends React.Component {
             let user=registerd_users[index]
             user['remember']=this.state.remember
             localStorage.setItem("logged_in",JSON.stringify(user));
+            this.props.handleChangeRole();
         }
         else{
             e.preventDefault();
@@ -58,6 +59,9 @@ class Login extends React.Component {
     logout = () => {
         localStorage.removeItem("logged_in");
         this.setState({});
+        this.props.handleChangeRole();
+
+
     }
     badImage = (e)=>{
         e.target.onerror = null;

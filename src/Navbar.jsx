@@ -48,20 +48,36 @@ class Navbar extends React.Component{
                   Shop</Link>
             </li>
             <li className="nav-item">
-            <Link to="/account" className="nav-link text-light casting-color">
-                  {this.state.loggedin?"Account":"Login"}</Link>
+            {this.state.loggedin?
+             <Link to="/account" className="nav-link text-light casting-color">Account</Link>
+             :
+             <Link to="/account" className="nav-link text-light casting-color">Login</Link>}
+
             </li>
             <li className="nav-item">
             <Link to="/cart" className="nav-link text-light casting-color">Cart</Link>
             </li>
-            <li className="nav-item">
-            <Link to="/checkout" className="nav-link text-light casting-color">Checkout</Link>
-            </li>
-            </ul>
-      </div>
-      </div>
-      </nav>
 
+
+            {this.props.loggedIn?
+             this.props.loggedIn.role==="admin"&&
+            <>
+                  <li className="nav-item">
+                  <Link to="/products" className="nav-link text-light casting-color">Products</Link>
+                  </li>
+                  <li className="nav-item">
+                  <Link to="/orders" className="nav-link text-light casting-color">Orders</Link>
+                  </li>
+                  <li className="nav-item">
+                  <Link to="/users" className="nav-link text-light casting-color">Users</Link>
+                  </li>
+            </> :null 
+      }         
+      </ul>
+      </div>
+            </div>
+            </nav>
+            
       )
 }
 }
