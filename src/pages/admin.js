@@ -31,6 +31,7 @@ export default class Admin extends Component {
   };
 
   render() {
+    if(JSON.parse(localStorage.getItem("logged_in")).role=="admin")
     return (
       <>
         <Hero title="Admin Dashboard" />
@@ -45,5 +46,13 @@ export default class Admin extends Component {
         <Submitted />
       </>
     );
+    else{
+      return(
+        <>
+        <Hero title="Admin Dashboard" />
+        <h1>You Don`t have permission to access this page</h1>
+        </>
+      );
+    }
   }
 }

@@ -54,9 +54,9 @@ class Navbar extends React.Component{
             <li className="nav-item">
             <Link to="/cart" className="nav-link text-light casting-color">Cart</Link>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
             <Link to="/checkout" className="nav-link text-light casting-color">Checkout</Link>
-            </li>
+            </li> */}
             </ul>
       </div>
       </div>
