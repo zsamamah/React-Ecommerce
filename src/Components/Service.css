@@ -29,6 +29,18 @@
   color: black;
   padding: 1em;
 }
+@media screen and (max-width: 1024px) {
+  #icons {
+    font-size: 2em;
+    padding: 0.7em 0;
+  }
+  .service-title {
+    font-size: 1em;
+  }
+  .service-paragraph {
+    font-size: 0.8em;
+  }
+}
 @media screen and (max-width: 900px) {
   .service-title {
     font-size: 1.1em;
