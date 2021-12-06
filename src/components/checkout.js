@@ -3,6 +3,8 @@ import {countries} from './countries.'
 import { Link } from "react-router-dom";
 import '../checkout.css'
 import Hero from './Hero';
+import Image from "../cart.png";
+
 
 export default class Checkout extends Component {
     constructor(props){
@@ -89,7 +91,7 @@ export default class Checkout extends Component {
           </>
         )
 
-        if(this.order)
+        if(this.order.length!=0)
         return (
             <>
             <Hero title="Checkout Page"/>
@@ -215,12 +217,13 @@ export default class Checkout extends Component {
             <>
             <Hero title="Checkout Page"/>
             <div className="empty-container">
-            <div>You Cart is empty</div>
-            <Link to="/shop">
-              <button className="table-button3">Back to shopping</button>
-            </Link>
-          </div>
-          </>
+              <div className="title-cart">Your cart is currently empty</div>
+              <img src={Image} alt="empty cart" className="cart-img" />
+              <Link to="/shop">
+                <button className="table-button3">Back to shopping</button>
+              </Link>
+            </div>
+            </>
         )
     }
 }

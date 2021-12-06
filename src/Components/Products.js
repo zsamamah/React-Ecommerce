@@ -33,4 +33,5 @@ export class Products extends Component {
 
 export default Products
 
-
+// [btn0, btn1, btn2]
+// ana 3am bakbes 3ala btn1
