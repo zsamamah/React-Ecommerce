@@ -1,135 +1,146 @@
-body{
-    background-color: rgba(3, 169, 244, 0.05);
-}
-#accounts-form-container{
-    display: flex;
-    justify-content:center;
-}
-.accounts-important{
-    font-weight: bold;
-    color: red;
-}
-#profileContainer *{
-    padding: 0;
-    margin: 0;
-}
-fieldset{
-    padding: 1.5em;
-    border-radius: 1em;
-    /* width: 60vw; */
-}
-fieldset a{
-    color: rgb(70, 196, 255);
-    text-decoration: none;
-}
-#login-form > div{
-    margin-top: 1.5em;
-}
-#login-email , #login-password{
-    width: 90%;
-    border-radius: 0.5em;
-    padding: 1em;
-    margin-top: 0.5em;
-}
-#remember-me-container{
-    width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-.accounts-form-btn{
-    border:none;
-    border-radius: 0.5em;
-    font-size: 1.2em;
-    padding: 0.5em 2em;
-    color: white;
-    background-color: rgb(3, 169, 244);
-}
-.error{
-    color: red;
-    font-size: 0.8em;
-}
-#register-form{
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    row-gap: 1em;
-}
-#register-form p{
-    margin: 0;
-    padding: 0;
-}
-#register-form input , #register-form select{
-    width: 80%;
-    padding: 0.8em;
-
-}
-#logoutBtn{
-    border:none;
-    border-radius: 0.5em;
-    padding: 1em;
-    font-weight: bold;
-    color: white;
-    background-color: rgb(223, 9, 9);
-}
-#logoutBtn:hover{
-    background-color: rgb(237, 21, 21);
-}
-#login-fieldset,#register-fieldset{
-    width: 60vw;
-}
-#profileContainer{
-    width: 40vw;
-}
-#profileContainer img{
-    width: 10em;
-    border-radius: 50%;
+body {
+  background-color: rgba(3, 169, 244, 0.05);
 }
 
-#userProfile{
-    display: flex;
-    flex-direction: row;
-    /* justify-content: center; */
-    align-items: center;
-    gap: 1em;
+.accounts-important {
+  font-weight: bold;
+  color: red;
 }
-#account-editData{
-    background-color: white;
-    padding: 2em;
+
+#profileContainer * {
+  padding: 0;
+  margin: 0;
 }
-#account-email-rule{
-    margin-top: 0;
-    margin: 0;
+fieldset {
+  /* padding: 1.5em; */
+  border-radius: 1em;
+  /* width: 60vw; */
 }
-#changeData-form{
-    display: flex;
+fieldset a {
+  color: rgb(70, 196, 255);
+  text-decoration: none;
+}
+#login-form > div {
+  margin-top: 1.5em;
+}
+.login-container {
+  max-width: 40em;
+  margin: 0 auto;
+}
+#login-email,
+#login-password {
+  width: 100%;
+  border-radius: 0.5em;
+  padding: 1em;
+  margin-top: 0.5em;
+}
+.login-title {
+  display: flex;
+  justify-content: center;
+  font-size: 3em;
+}
+#remember-me-container {
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+.accounts-form-btn {
+  border: none;
+  border-radius: 0.5em;
+  font-size: 1.2em;
+  padding: 0.5em 2em;
+  color: white;
+  background-color: rgb(3, 169, 244);
+}
+.error {
+  color: red;
+  font-size: 0.8em;
+}
+#register-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 1em;
+}
+#register-form p {
+  margin: 0;
+  padding: 0;
+}
+#register-form input,
+#register-form select {
+  width: 80%;
+  padding: 0.8em;
+}
+#logoutBtn {
+  border: none;
+  border-radius: 0.5em;
+  padding: 1em;
+  font-weight: bold;
+  color: white;
+  background-color: rgb(223, 9, 9);
+}
+#logoutBtn:hover {
+  background-color: rgb(237, 21, 21);
+}
+
+#profileContainer {
+  width: 40vw;
+}
+#profileContainer img {
+  width: 10em;
+  border-radius: 50%;
+}
+
+#userProfile {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: center; */
+  align-items: center;
+  gap: 1em;
+}
+#account-editData {
+  background-color: white;
+  padding: 2em;
+}
+#account-email-rule {
+  margin-top: 0;
+  margin: 0;
+}
+#changeData-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+#changeData-form input {
+  width: 40%;
+  padding: 0.5em;
+}
+#changeData-form button {
+  border: none;
+  border-radius: 0.5em;
+  padding: 0.5em;
+  font-size: 1em;
+  color: white;
+  background-color: rgb(3, 169, 244);
+}
+
+@media only screen and (max-width: 490px) {
+  #remember-me-container {
+    width: none;
     flex-direction: column;
     gap: 1em;
+  }
+  #register-form {
+    grid-template-columns: 1fr;
+  }
 }
-#changeData-form input{
-    width: 40%;
-    padding: 0.5em;
-}
-#changeData-form button{
-    border:none;
-    border-radius: 0.5em;
-    padding: 0.5em;
-    font-size: 1em;
-    color: white;
-    background-color: rgb(3, 169, 244);
-}
-
-@media only screen and (max-width:870px) {
-    #remember-me-container{
-        width: 90%;
-    }
-}
-@media only screen and (max-width:490px) {
-    #remember-me-container{
-        width: none;
-        flex-direction: column;
-        gap: 1em;
-    }
-    #register-form{
-        grid-template-columns: 1fr;
-    }
+@media only screen and (max-width: 490px) {
+  #remember-me-container {
+    width: 100%;
+  }
+  .btn-login {
+    margin: 0 auto;
+  }
+  .a-login {
+    text-align: center;
+  }
 }
