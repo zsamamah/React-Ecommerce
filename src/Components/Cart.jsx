@@ -188,14 +188,15 @@ class Cart extends React.Component {
                 {this.state.discounted ? (
                   <tr>
                     <td>Discount</td>
-                    <td className="discount">JOD -{this.discountValue()}</td>
+                    <td className="discount">JOD -{Math.round((this.discountValue()) * 100) / 100}</td>
                   </tr>
                 ) : (
                   ""
                 )}
                 <tr>
                   <td className="table-td">Total</td>
-                  <td className="table-subtotal">JOD {this.state.total}</td>
+                  <td className="table-subtotal">JOD {Math.round((this.state.total) * 100) / 100}</td>
+                  
                 </tr>
               </table>
               <div className="btn-checkout">

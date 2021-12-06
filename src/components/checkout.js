@@ -69,7 +69,13 @@ export default class Checkout extends Component {
     }
 
     handlePayment= (e)=>{
-        e.target.value==="cash"?this.setState({cashMsg1:"flex",cashMsg2:'none'}):this.setState({cashMsg1:'none',cashMsg2:'flex'})
+       if( e.target.value==="cash"){
+           this.setState({cashMsg1:"flex",cashMsg2:'none'});
+
+        }else{
+            this.setState({cashMsg1:'none',cashMsg2:'flex'})
+        }
+
     }
 
     totalPrice = ()=>{
@@ -180,25 +186,27 @@ export default class Checkout extends Component {
                                 </tr>
                                 <tr>
                                     <td>Discount</td>
-                                    <td className="discount">JOD {JSON.parse((localStorage.getItem('total'))-JSON.parse(localStorage.getItem('subTotal')).toFixed(2))}</td>
+                                    <td className="discount">JOD {Math.round(JSON.parse(localStorage.getItem('total')-JSON.parse(localStorage.getItem('subTotal'))) * 100) / 100}</td>
+                                    
                                 </tr>
                                 <tr>
                                     <td className="table-grey">Total</td>
-                                    <td>{JSON.parse(localStorage.getItem('total'))}</td>
+                                    <td>{Math.round((JSON.parse(localStorage.getItem('total'))) * 100) / 100}</td>
+                                    
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                     <div className="checkout-payment">
                         <div className='radios'>
-                            <input onChange={this.handlePayment} type="radio" name="method" id="cash" value="cash" selected={true}/>
+                            <input onChange={this.handlePayment} type="radio" name="method" id="cash" value="cash" defaultChecked/>
                             <label htmlFor="cash">Cash on delivery</label>
                         </div>
                         <div className="payment-msg-container">
                             <p className="payment-msg" id="one" style={{display:this.state.cashMsg1}}>Pay with cash upon delivery</p>
                         </div>
                         <div className='radios'>
-                            <input onChange={this.handlePayment} type="radio" name="method" id="credit-cards"/>
+                            <input onChange={this.handlePayment} type="radio" name="method" id="credit-cards" value="credit-cards"/>
                             <label htmlFor="credit-cards" >Credit Card</label>
                         </div>
                         <div className="payment-msg-container1">
