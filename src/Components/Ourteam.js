@@ -9,18 +9,19 @@ class Team extends Component {
       { name: "Shahed Khalayleh", title: "Product Owner", image: "im10.webp" },
       { name: "Kholoud Khraisat", title: "Web Developer", image: "im1.jpg" },
       { name: "Rahaf Arafeh", title: "Web Developer", image: "im12.webp" },
-      { name: "Sanad Khamash", title: "Web Developer", image: "im16.jpg" },
+      { name: "Sanad Khamash", title: "Web Developer", image: "im16.jpg" }
     ];
   }
 
   render() {
     return (
-      <div className="cardContainer">
-        <h2>Our Team</h2>
+      <>
+        <h2 className="home-heading">Our Team</h2>
+      {/* <div className="cardContainer"> */}
         <div className="memberContainer">
-          {this.state.map((teamInfo) => {
+          {this.state.map((teamInfo,index) => {
             return (
-              <div className="members">
+              <div id={index} className="members">
                 <img width="100%" src={teamInfo.image} alt="Team Member" />
                 <h4>{teamInfo.name}</h4>
                 <p>{teamInfo.title}</p>
@@ -39,8 +40,9 @@ class Team extends Component {
               </div>
             );
           })}
-        </div>
+        {/* </div> */}
       </div>
+      </>
     );
   }
 }
