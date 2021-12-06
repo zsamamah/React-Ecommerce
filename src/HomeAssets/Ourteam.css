@@ -1,10 +1,6 @@
-/* .cardContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 2em;
-  margin: 0 auto;
-} */
+.ourteam-container {
+  margin: 3em 0;
+}
 .members a {
   font-size: 1.5em;
   text-decoration: none;
@@ -51,7 +47,9 @@
   .cardContainer {
     padding: 0.5em;
   }
-
+  .members {
+    width: 70%;
+  }
   h2 {
     font-size: 1em;
   }

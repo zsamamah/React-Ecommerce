@@ -5,10 +5,17 @@
   padding: 2em;
   margin: 0 auto;
 } */
-.home-heading{
-    text-align: center;
+.testimonials-container {
+  height: 70vh;
 }
-
+.home-heading {
+  text-align: center;
+  font-size: 4em;
+  font-weight: bold;
+}
+.testimonials-p {
+  font-size: 1.4em;
+}
 .people {
   width: 30%;
   color: black;
@@ -17,8 +24,9 @@
   align-items: center;
   box-shadow: 20em rgba(0, 0, 0, 0.1);
   text-align: center;
-  height: max-content;
+  height: 50vh;
   padding: 0.5em;
+  margin: 2em;
 }
 .people img {
   width: 50%;
@@ -28,16 +36,13 @@
 }
 .people h4 {
   padding: 0.5em;
+  font-size: 2em;
 }
 .testimonials {
-  /* height: 70%;
-  width: 70%; */
+  width: 80%;
   display: flex;
   justify-content: center;
   margin: 0 auto;
-}
-.people p {
-  font-size: 1em;
 }
 
 @media screen and (max-width: 634px) {
@@ -45,7 +50,7 @@
     flex-direction: column;
     align-items: center;
   }
-  .people{
+  .people {
     width: 70%;
   }
 }

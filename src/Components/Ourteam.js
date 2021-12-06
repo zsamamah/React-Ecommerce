@@ -15,14 +15,14 @@ class Team extends Component {
 
   render() {
     return (
-      <>
+      <div className='ourteam-container'>
         <h2 className="home-heading">Our Team</h2>
       {/* <div className="cardContainer"> */}
         <div className="memberContainer">
           {this.state.map((teamInfo,index) => {
             return (
               <div id={index} className="members">
-                <img width="100%" src={teamInfo.image} alt="Team Member" />
+                <img width="100%" src={teamInfo.image} alt="Team Member" className='ourteam-img'/>
                 <h4>{teamInfo.name}</h4>
                 <p>{teamInfo.title}</p>
                 <a
@@ -42,7 +42,7 @@ class Team extends Component {
           })}
         {/* </div> */}
       </div>
-      </>
+      </div>
     );
   }
 }

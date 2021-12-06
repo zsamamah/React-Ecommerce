@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital@1&family=Roboto+Condensed:wght@300&family=Roboto:wght@900&family=Source+Sans+Pro:wght@200&family=Vidaloka&family=Vollkorn&display=swap");
-html{
-    width: 100%;
+html {
+  width: 100%;
 }
 body {
   font-family: "Noto Serif", serif;
@@ -87,7 +87,16 @@ body {
     font-size: 1em;
     width: 100%;
   }
-  .intro-p{
-      font-size: 0.9em;
+  .intro-h {
+    font-size: 3em;
+  }
+  .intro-p {
+    font-size: 0.9em;
+    width: 80%;
+  }
+}
+@media screen and (max-width: 1121px) {
+  br {
+    display: none;
   }
 }

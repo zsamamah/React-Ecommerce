@@ -25,7 +25,7 @@ class Testimonial extends Component {
   }
   render() {
     return (
-        <>
+        <div className='testimonials-container'>
         <h2 className="home-heading">Testimonials</h2>
 
         <div className="testimonials">
@@ -34,12 +34,12 @@ class Testimonial extends Component {
               <div key={index} className="people">
                 <img width="100%" alt="Review" src={teamInfo.image} />
                 <h4>{teamInfo.name}</h4>
-                <p>{teamInfo.text}</p>
+                <p className='testimonials-p'>{teamInfo.text}</p>
               </div>
             );
           })}
       </div>
-      </>
+      </div>
     );
   }
 }
