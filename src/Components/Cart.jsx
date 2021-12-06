@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../Cart.css";
 import Image from "../cart.png";
-import Hero from './Hero';
+import Hero from "./Hero";
 class Cart extends React.Component {
   state = {
     products: JSON.parse(localStorage.getItem("order")),
@@ -59,8 +59,14 @@ class Cart extends React.Component {
       );
     localStorage.setItem("subTotal", JSON.stringify(sum));
     this.setState({ subtotal: sum });
-    if (!this.state.discounted) await this.setState({ total: sum });
-    else await this.setState({ total: 0.8 * this.state.subtotal });
+    if (!this.state.discounted)
+      await this.setState({
+        total: JSON.parse(localStorage.getItem("subTotal")),
+      });
+    else
+      await this.setState({
+        total: 0.8 * JSON.parse(localStorage.getItem("subTotal")),
+      });
     localStorage.setItem("total", JSON.stringify(this.state.total));
   };
 
@@ -105,121 +111,128 @@ class Cart extends React.Component {
     if (this.state.products?.length) {
       return (
         <>
-        <Hero title="Cart Page"/>
-        <section className="cart-container">
-          <table className="table-products">
-            <thead className="table-head">
-              <tr className="table-header">
-                <th></th>
-                <th></th>
-                <th>Product</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Subtotal</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              {JSON.parse(localStorage.getItem("order")).map((product) => (
-                <tr className="table-row">
-                  <td></td>
-                  <td>
-                    <img
-                      src={product.img}
-                      alt="product item"
-                      className="image-table"
-                    />
-                  </td>
-                  <td className="title-products">{product.itemName}</td>
-                  <td>JOD {product.price}</td>
-
-                  <td>
-                    <button
-                      className="table-button2"
-                      onClick={() => this.decrement(product)}
-                      disabled={product.counter === 1}
-                    >
-                      -
-                    </button>
-                    {product.counter}
-                    <button
-                      className="table-button"
-                      onClick={() => this.increment(product)}
-                    >
-                      +
-                    </button>
-                  </td>
-
-                  <td>JOD {product.price * product.counter}</td>
-                  <td
-                    onClick={() => this.handleDelete(product)}
-                    className="table-Delete"
-                  >
-                    Delete
-                  </td>
+          <Hero title="Cart Page" />
+          <section className="cart-container">
+            <table className="table-products">
+              <thead className="table-head">
+                <tr className="table-header">
+                  <th></th>
+                  <th></th>
+                  <th>Product</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th>Subtotal</th>
+                  <th></th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {JSON.parse(localStorage.getItem("order")).map((product) => (
+                  <tr className="table-row">
+                    <td></td>
+                    <td>
+                      <img
+                        src={product.img}
+                        alt="product item"
+                        className="image-table"
+                      />
+                    </td>
+                    <td className="title-products">{product.itemName}</td>
+                    <td>JOD {product.price}</td>
 
-          <div className="table-footer">
-            <input
-              type="text"
-              className="table-input"
-              placeholder="Coupon Code"
-              onKeyUp={(event) => this.couponInputHandler(event)}
-            />
-            <button
-              className="table-btn"
-              onClick={() => this.couponButtonHandler()}
-            >
-              Apply coupon
-            </button>
-          </div>
+                    <td>
+                      <button
+                        className="table-button2"
+                        onClick={() => this.decrement(product)}
+                        disabled={product.counter === 1}
+                      >
+                        -
+                      </button>
+                      {product.counter}
+                      <button
+                        className="table-button"
+                        onClick={() => this.increment(product)}
+                      >
+                        +
+                      </button>
+                    </td>
 
-          <div className="cart-total">
-            <div className="cart-totals">
-              <h3 className="table-title">Cart Totals</h3>
-              <table className="table-total">
-                <tr>
-                  <td className="table-td">Subtotal</td>
-                  <td className="table-subtotal">JOD {this.state.subtotal}</td>
-                </tr>
-                {this.state.discounted ? (
-                  <tr>
-                    <td>Discount</td>
-                    <td className="discount">JOD -{Math.round((this.discountValue()) * 100) / 100}</td>
+                    <td>JOD {product.price * product.counter}</td>
+                    <td
+                      onClick={() => this.handleDelete(product)}
+                      className="table-Delete"
+                    >
+                      Delete
+                    </td>
                   </tr>
-                ) : (
-                  ""
-                )}
-                <tr>
-                  <td className="table-td">Total</td>
-                  <td className="table-subtotal">JOD {Math.round((this.state.total) * 100) / 100}</td>
-                  
-                </tr>
-              </table>
-              <div className="btn-checkout">
-                <Link to={this.redirect()}>
-                  <button className="table-button">Proceed to checkout</button>
-                </Link>
+                ))}
+              </tbody>
+            </table>
+
+            <div className="table-footer">
+              <input
+                type="text"
+                className="table-input"
+                placeholder="Coupon Code"
+                onKeyUp={(event) => this.couponInputHandler(event)}
+              />
+              <button
+                className="table-btn"
+                onClick={() => this.couponButtonHandler()}
+              >
+                Apply coupon
+              </button>
+            </div>
+
+            <div className="cart-total">
+              <div className="cart-totals">
+                <h3 className="table-title">Cart Totals</h3>
+                <table className="table-total">
+                  <tr>
+                    <td className="table-td">Subtotal</td>
+                    <td className="table-subtotal">
+                      JOD {this.state.subtotal}
+                    </td>
+                  </tr>
+                  {this.state.discounted ? (
+                    <tr>
+                      <td>Discount</td>
+                      <td className="discount">
+                        JOD -{Math.round(this.discountValue() * 100) / 100}
+                      </td>
+                    </tr>
+                  ) : (
+                    ""
+                  )}
+                  <tr>
+                    <td className="table-td">Total</td>
+                    <td className="table-subtotal">
+                      JOD {Math.round(this.state.total * 100) / 100}
+                    </td>
+                  </tr>
+                </table>
+                <div className="btn-checkout">
+                  <Link to={this.redirect()}>
+                    <button className="table-button">
+                      Proceed to checkout
+                    </button>
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
         </>
       );
     } else {
       return (
         <>
-        <Hero title="Cart Page"/>
-        <div className="empty-container">
-          <div className="title-cart">Your cart is currently empty</div>
-          <img src={Image} alt="empty cart" className="cart-img" />
-          <Link to="/shop">
-            <button className="table-button3">Back to shopping</button>
-          </Link>
-        </div>
+          <Hero title="Cart Page" />
+          <div className="empty-container">
+            <div className="title-cart">Your cart is currently empty</div>
+            <img src={Image} alt="empty cart" className="cart-img" />
+            <Link to="/shop">
+              <button className="table-button3">Back to shopping</button>
+            </Link>
+          </div>
         </>
       );
     }
