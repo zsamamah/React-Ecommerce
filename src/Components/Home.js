@@ -13,7 +13,6 @@ export default class Home extends Component {
             <div className="homePageContainer">
                 <Intro />
                 <Service />
-                {/* API Weather Sanad */}
                 <Testimonial />
                 <Slider />
                 <Team />

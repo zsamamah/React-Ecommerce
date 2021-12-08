@@ -60,43 +60,6 @@ export default class UsersContainer extends Component {
                 </div>
                 </div>
                 })}
-                    {/* <div className='userCard'>
-                        <h4> First Names</h4>
-                        {this.state.users.map((user,indx)=><li key={indx}>{user.fname}</li>)}
-                    </div>
-                    <div className='userCard'>
-                        <h4> Last Names</h4>
-                        {this.state.users.map((user,indx)=><li key={indx}>{user.lname}</li>)}
-                    </div>
-                    <div className='userCard'>
-                        <h4> Emails</h4>
-                        {this.state.users.map((user,indx)=><li key={indx}>{user.email}</li>)}
-                    </div>
-                    <div className="userCard">
-                        <h4>Role</h4>
-                        {this.state.users.map((user,i)=>{
-                        return(
-                        <li key={i}>
-                            <select value={user.role}  name="role" onChange={(e)=>this.handleChangeRole(e,i)}>
-                                <option value={user.role}>{user.role}</option>
-                                <option value={user.role==="admin"? "user":"admin"}>{user.role==="admin"? "user":"admin"}</option>
-                            </select>
-                        </li>
-
-                        )
-                    })}
-                    </div>
-                    <ul className="userCard">
-                        <h4>Delete User</h4>
-                        {this.state.users.map((user,i)=>{
-                        return(
-                        <li key={i}>
-                            <button onClick={(e)=>this.handleDeleteUser(e,i)}>Delete User</button>
-                        </li>
-
-                        )
-                    })}
-                    </ul> */}
             </div>
             </>
         )

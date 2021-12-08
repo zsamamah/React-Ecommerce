@@ -13,7 +13,6 @@ class Login extends React.Component {
             email:"",
             password:"",
             remember:false,
-            redirectTo:'/',
             fname:this.logged_user.fname,
             lname:this.logged_user.lname,
             image_url:this.logged_user.img,
@@ -26,19 +25,20 @@ class Login extends React.Component {
         let index;
         let registerd_users=JSON.parse(localStorage.getItem("users"));
         for(let i=0;i<registerd_users.length;i++){
-            if(registerd_users[i].email===this.state.login_email){
-                if(registerd_users[i].password===this.state.login_password){
-                    found=true;
-                    index=i;
-                    break;
-                }
+          if(registerd_users[i].email===this.state.login_email){
+            if(registerd_users[i].password===this.state.login_password){
+              found=true;
+              index=i;
+              break;
             }
+          }
         }
         if(found){
-            // alert("Welcome user")
-            let user=registerd_users[index]
-            user['remember']=this.state.remember
-            localStorage.setItem("logged_in",JSON.stringify(user));
+          // alert("Welcome user")
+          let user=registerd_users[index]
+          user['remember']=this.state.remember
+          localStorage.setItem("logged_in",JSON.stringify(user));
+          this.logged_user=JSON.parse(localStorage.getItem('logged_in'))
             this.props.handleChangeRole();
             await this.setState({logged:JSON.parse(localStorage.getItem('logged_in'))})
         }
@@ -51,7 +51,6 @@ class Login extends React.Component {
           this.setState({
               [e.target.id]:e.target.value
           })
-  
     }
     changeData=()=>{
       let logged_user=JSON.parse(localStorage.getItem("logged_in"));
@@ -88,10 +87,6 @@ class Login extends React.Component {
       <div id="accounts-form-container">
         <div className="login-container">
         <h1 className="login-title">Login</h1>
-        {localStorage.getItem("redirectTo")?()=>{
-          this.setState({redirectTo:localStorage.getItem("redirectTo")})
-          localStorage.removeItem("redirectTo")
-        }:null}
         <fieldset id="login-fieldset">
           <form id="login-form" onSubmit={this.handleSubmit} action={localStorage.getItem("redirectTo")?'/checkout':'/'}>
             <div>
@@ -179,3 +174,5 @@ class Login extends React.Component {
   }
 }
 export default Login;
+
+

@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
 *{
     padding:0;
     margin:0;
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
 }
 .shop-card {
     padding: 1rem;
@@ -25,6 +27,10 @@
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-gap: 2em
+  }
+  .shop-card-grid img{
+    height: 40%;
+    width: 40%;
   }
   .shop-card-img{
     width: 20em;

@@ -196,7 +196,7 @@ export class Register extends Component {
                 Country : <span className="accounts-important">*</span>
               </label>
               <br />
-              <select id="country" onChange={this.validator} required>
+              <select id="country" class="select-register" onChange={this.validator} required>
                 {countries.map((element, i) => {
                   return <option key={i} value={element.name}>{element.name}</option>;
                 })}
@@ -242,6 +242,7 @@ export class Register extends Component {
               <input
                 type="password"
                 id="password"
+                className="register-first-password"
                 onChange={this.validator}
                 required
               />

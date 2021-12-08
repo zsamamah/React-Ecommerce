@@ -1,22 +1,24 @@
 body {
-      background-color: whitesmoke;
+  background-color: whitesmoke;
 }
 nav.navbar.noTransparrent {
-      background-color: #ffffff;
-      color: black;
-      border-bottom: 1px solid #eee;
+  background-color: #ffffff;
+  color: black;
+  border-bottom: 1px solid #eee;
+}
+.navbar-brand img {
+  width: 2em;
+}
+.nav-link {
+  color: white;
+}
+.nav-link:hover{
+      font-size: 1.2em;
+      transition-duration: 0.4s;
+}
+#casting-color {
+  color: black;
+}
+.navbar-light .navbar-nav .nav-link {
+      color: rgba(0, 0, 0, 0.664);
   }
-  .navbar-brand img{
-        width: 2em;
-  }
-.nav-link{
-        color: white;
-}
-#casting-color{
-      color: black;
-}
-
-.nav-item{
-
-      
-}

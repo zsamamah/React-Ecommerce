@@ -52,6 +52,8 @@ fieldset a {
 }
 .accounts-form-btn {
   border: none;
+  display: block;
+  margin-bottom: 0.5em;
   border-radius: 0.5em;
   font-size: 1.2em;
   padding: 0.5em 2em;
@@ -133,6 +135,12 @@ fieldset a {
   font-size: 1em;
   color: white;
   background-color: rgb(3, 169, 244);
+}
+#accounts-form-container{
+  padding: 1.5em;
+}
+.select-register,.register-first-password{
+  display: block;
 }
 #account-editData{
   display: flex;
