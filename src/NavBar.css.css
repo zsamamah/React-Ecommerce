@@ -22,3 +22,9 @@ nav.navbar.noTransparrent {
 .navbar-light .navbar-nav .nav-link {
       color: rgba(0, 0, 0, 0.664);
   }
+
+  @media only screen and (max-width: 450px){
+    #navBar{
+      /* width: 80% */
+    }
+  }
