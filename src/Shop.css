@@ -71,6 +71,10 @@
    opacity: 1;
   }
 
+  .fa-plus-square, .fa-minus-square {
+    cursor: pointer;
+  }
+
   .counterShop{
     display: flex;
     text-align: center;

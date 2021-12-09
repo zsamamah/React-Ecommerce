@@ -88,7 +88,7 @@ export class ProductItem extends Component {
         <div className="shop-card shop-text-center">
           <img src={this.state.img} alt="" className="shop-card-img" />
           <p className="shop-card-label">{this.props.item.itemName}</p>
-          <p className="shop-card-price">{this.props.item.price}</p>
+          <p className="shop-card-price">JOD {this.props.item.price}</p>
           {!this.props.showDelete && (
             <>
               <div className="counterShop">
