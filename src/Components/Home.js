@@ -13,8 +13,8 @@ export default class Home extends Component {
             <div className="homePageContainer">
                 <Intro />
                 <Service />
-                <Testimonial />
                 <Slider />
+                <Testimonial />
                 <Team />
                 <Youtube />
             </div>

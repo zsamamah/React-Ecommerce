@@ -32,7 +32,7 @@ class Testimonial extends Component {
           {this.state.map((teamInfo,index) => {
             return (
               <div key={index} className="people">
-                <img width="100%" alt="Review" src={teamInfo.image} />
+                <img alt="Review" src={teamInfo.image} />
                 <h4>{teamInfo.name}</h4>
                 <p className='testimonials-p'>{teamInfo.text}</p>
               </div>

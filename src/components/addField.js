@@ -47,6 +47,7 @@ export default class AddField extends Component {
             type="text"
             name="heading"
             placeholder="Product Name"
+            className="btn border-dark"
           />
           <textarea
             required
@@ -54,22 +55,31 @@ export default class AddField extends Component {
             row="8"
             name="text" value={this.state.textarea}
             placeholder="Product Description" onChange={this.handleTextArea}
+            className="btn border-dark"
+
+
+
           />
-          <input required type="url" name="image" placeholder="Image URL" />
-          <input required type="text" name="alt" placeholder="Alt for Image" />
+          <input required type="url" name="image" placeholder="Image URL" className="btn border-dark"
+ />
+          <input required type="text" name="alt" placeholder="Alt for Image" className="btn border-dark"
+ />
           <input
             required
             type="number"
             name="price"
             placeholder="Enter Price"
+            className="btn border-dark"
+
           />
           <input
             required
             type="number"
             name="id"
             placeholder="Enter Product ID"
+            className="btn border-dark"
           />
-          <button type="submit">Add Card</button>
+          <button type="submit" className="btn bg-primary text-white fw-bold">Add Card</button>
         </form>
         <Products showDelete={true} deleteCard={this.props.deleteCard} items={this.props.items} />
 

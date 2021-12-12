@@ -49,6 +49,10 @@ body {
 .lh-lg {
   font-size: 1em;
 }
+
+.text-warning{
+  color : #ff9500 !important;
+}
 @media screen and (max-width: 450px) {
   .client {
     width: 80%;

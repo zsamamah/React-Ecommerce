@@ -84,7 +84,6 @@ export class ProductItem extends Component {
   render() {
     // const { img, itemName, price } = this.state.;
     return (
-      <div>
         <div className="shop-card shop-text-center">
           <img src={this.state.img} alt="" className="shop-card-img" />
           <p className="shop-card-label">{this.props.item.itemName}</p>
@@ -112,7 +111,6 @@ export class ProductItem extends Component {
             </button>
           )}
         </div>
-      </div>
     );
   }
 }

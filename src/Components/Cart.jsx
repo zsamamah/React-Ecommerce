@@ -140,7 +140,7 @@ class Cart extends React.Component {
                     <td>JOD {product.price}</td>
 
                     <td>
-                      <button
+                      <button 
                         className="table-button2"
                         onClick={() => this.decrement(product)}
                         disabled={product.counter === 1}
@@ -195,7 +195,7 @@ class Cart extends React.Component {
                   </tr>
                   {this.state.discounted ? (
                     <tr>
-                      <td>Discount</td>
+                      <td className="table-td">Discount</td>
                       <td className="discount">
                         JOD -{Math.round(this.discountValue() * 100) / 100}
                       </td>

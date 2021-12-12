@@ -27,12 +27,14 @@
   height:50vh;
   padding: 0.5em;
   margin: 2em;
+  box-shadow:  0.2em 0.2em 1em 0.2em grey;
+  border-radius: 0.6em;
 }
 .people img {
   width: 50%;
   border-radius: 50%;
   padding: 0.5em;
-  height: 15vh;
+  height: 25vh;
 
 }
 .people h4 {

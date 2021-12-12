@@ -32,6 +32,8 @@
   text-align: center;
   align-items: center;
   width: 89%;
+  box-shadow:  0.2em 0.2em 1em 0.2em grey;
+  border-radius: 0.6em;
 }
 
 .members > h4 {
@@ -42,6 +44,8 @@
   box-shadow: 20em rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
+  justify-content: space-around;
+  width: 95%;
 }
 #contactIcon {
   color: #808080;

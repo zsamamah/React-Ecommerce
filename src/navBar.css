@@ -117,10 +117,15 @@
     /* justify-content: space-around; */
     align-items: center;
     gap: 0.5em;
-    /* width: 50%; */
+    width: 100%;
+}
+
+.AddForm input{
+    width: 50%;
 }
 textarea{
     height: 10em;
+    width: 50%;
 }
 .userCommented{
     display: flex;

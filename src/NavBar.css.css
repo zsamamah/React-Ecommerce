@@ -6,6 +6,12 @@ nav.navbar.noTransparrent {
   color: black;
   border-bottom: 1px solid #eee;
 }
+
+#custom-ul{
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+}
 .navbar-brand img {
   width: 2em;
 }
@@ -13,8 +19,7 @@ nav.navbar.noTransparrent {
   color: white;
 }
 .nav-link:hover{
-      font-size: 1.2em;
-      transition-duration: 0.4s;
+      color: orange !important;
 }
 #casting-color {
   color: black;

@@ -123,11 +123,11 @@ export default class Checkout extends Component {
                                 <div className='checkout-adjacent'>
                                     <label>
                                         <p>First Name:</p>
-                                        <input type="text" name="fname" value={this.state.fname} onChange={this.handleChange}/>
+                                        <input placeholder='First Name' type="text" name="fname" value={this.state.fname} onChange={this.handleChange}/>
                                     </label>
                                     <label>
                                         <p>Last Name:</p>
-                                        <input type="text" name="lname" onChange={this.handleChange} value={this.state.lname}/>
+                                        <input placeholder='Last Name' type="text" name="lname" onChange={this.handleChange} value={this.state.lname}/>
                                     </label>
                                 </div>
                                 <label>
@@ -140,27 +140,27 @@ export default class Checkout extends Component {
                                 </label>
                                 <label>
                                     <p>Street Adress:</p>
-                                    <input required type="text" name="streetAddress"></input>
+                                    <input placeholder='Street Address' required type="text" name="streetAddress"></input>
                                 </label>
                                 <label>
                                     <p>Town/City</p>
-                                    <input required type="text" name="town"></input>
+                                    <input placeholder='Town/City' required type="text" name="town"></input>
                                 </label>
                                 <label>
                                     <p>State/Governorate</p>
-                                    <input required type="text" name="state"></input>
+                                    <input placeholder='State/Governorate' required type="text" name="state"></input>
                                 </label>
                                 <label>
                                     <p>Postcode / ZIP</p>
-                                    <input required type="text" name="zip"></input>
+                                    <input placeholder='Postcode / ZIP' required type="text" name="zip"></input>
                                 </label>
                                 <label>
                                     <p>Phone</p>
-                                    <input onChange={this.handleChange} required name="phone" type="tel" value={this.state.phone}/>
+                                    <input placeholder='Phone' onChange={this.handleChange} required name="phone" type="tel" value={this.state.phone}/>
                                     </label>
                                     <label>
                                     <p>Email address</p>
-                                    <input onChange={this.handleChange} required type="email" name="email" value={this.state.email}/>
+                                    <input placeholder='Email address' onChange={this.handleChange} required type="email" name="email" value={this.state.email}/>
                                 </label>
                             </div>
                         </div>
@@ -228,7 +228,7 @@ export default class Checkout extends Component {
                             </div>
                         </div>
                         <div className="orderBtn">
-                            <button type="submit" id="placeOrder">Place Order</button>
+                            <button type="submit" id="placeOrder">Checkout</button>
                         </div>
                     </div>
 

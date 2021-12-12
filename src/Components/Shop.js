@@ -16,11 +16,9 @@ export class Shop extends Component {
         return (
             <>
             <Hero title="Shop Page"/>
-            <div >
                 <div className='shop-container'>
                     <Products items={this.state.items} />
                 </div>
-            </div>
             </>
         )
     }
