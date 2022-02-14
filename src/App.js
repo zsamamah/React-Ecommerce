@@ -21,9 +21,9 @@ class App extends React.Component {
       items: JSON.parse(localStorage.getItem("items")),
     };
   }
-  handleChangeitem=()=>{
-    this.setState({items:JSON.parse(localStorage.getItem('items'))})
-  }
+  handleChangeitem = () => {
+    this.setState({ items: JSON.parse(localStorage.getItem("items")) });
+  };
 
   handleChangeRole = () => {
     this.setState({
@@ -40,30 +40,36 @@ class App extends React.Component {
   };
 
   render() {
-        return (
-          <>
-            <Navbar loggedIn={this.state.isLoggedIn}/>
-            <Switch>
-            <Route
-                path="/products"
-                element={<AddField items={this.state.items} deleteCard={this.deleteCard} handleChangeitem={this.handleChangeitem}/>}
+    return (
+      <>
+        <Navbar loggedIn={this.state.isLoggedIn} />
+        <Switch>
+          <Route
+            path="/products"
+            element={
+              <AddField
+                items={this.state.items}
+                deleteCard={this.deleteCard}
+                handleChangeitem={this.handleChangeitem}
               />
-              <Route path="/users" element={<UsersContainer />} />
-              <Route path="/orders" element={<Submitted />} />
-              <Route path="/" element={<Home />} />
-              <Route
-                path="/account"
-                element={<Login handleChangeRole={this.handleChangeRole} />}
-              />
-              <Route path="/register" element={<Register />} />
-              <Route path="/cart" element={<Cart />} />
-              <Route path="/checkout" element={<Checkout />} />
-              <Route path="/shop" element={<Shop />} />
-              <Route path="*" element={<NotFound />} />
-            </Switch>
-            <Footer/>
-          </>
-        );
+            }
+          />
+          <Route path="/users" element={<UsersContainer />} />
+          <Route path="/orders" element={<Submitted />} />
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/account"
+            element={<Login handleChangeRole={this.handleChangeRole} />}
+          />
+          <Route path="/register" element={<Register />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/shop" element={<Shop />} />
+          <Route path="*" element={<NotFound />} />
+        </Switch>
+        <Footer />
+      </>
+    );
   }
 }
 
